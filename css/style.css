@@ -11,6 +11,13 @@
 }
 
 .fa-play {
+	color: rebeccapurple;
+	stroke: black;
+	stroke-width: 5px;
+	transition: 250ms ease-in-out;
+}
+
+.fa-play:hover {
 	color: aquamarine;
 	stroke: black;
 	stroke-width: 5px;

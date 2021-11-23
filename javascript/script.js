@@ -6,6 +6,7 @@ var logo;
 var Phaser;
 var pegs;
 var keySpace;
+var cursorKeys;
 
 // ball attributes
 
@@ -43,9 +44,9 @@ function preload() {
 }
 
 function create() {
-
 	keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-	
+	cursorKeys = scene.input.keyboard.createCursorKeys();
+
 	this.add.image(width / 2, height / 2, "sky");
 	pegs = this.physics.add.staticGroup({
 		key: "peg",
@@ -63,7 +64,7 @@ function create() {
 	ball = this.physics.add.sprite(width / 2, 100, "ball");
 	ball.setScale(1.0);
 	ball.setCollideWorldBounds(true);
-	ball.setBounce(.5, .5);
+	ball.setBounce(0.5, 0.5);
 	ball.setVelocity(0);
 	ball.body.setCircle(18);
 
@@ -82,12 +83,14 @@ function create() {
 	this.physics.add.collider(logo, pegs);
 }
 function update() {
-	if (keySpace.isDown)
-    {
+	if (keySpace.isDown) {
 		ball.setVelocity(1000);
-        console.log('spacebar');
-    }
-
+		console.log("spacebar");
+	} else if (cursorKeys.left.isDown) {
+		console.log("left key");
+	} else if (cursorKeys.right.isDown) {
+		console.log("right key");
+	}
 }
 
 function collide() {}
