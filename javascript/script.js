@@ -18,7 +18,7 @@ var config = {
 	physics: {
 		default: "arcade",
 		arcade: {
-			gravity: { y: 200 },
+			gravity: { y: 0 },
 			debug: true,
 		},
 	},
@@ -60,11 +60,11 @@ function create() {
 
 	var particles = this.add.particles("red");
 
-	ball = this.physics.add.image(width / 2, 100, "ball");
+	ball = this.physics.add.sprite(width / 2, 100, "ball");
 	ball.setScale(1.0);
 	ball.setCollideWorldBounds(true);
 	ball.setBounce(.5, .5);
-	ball.setVelocity(20);
+	ball.setVelocity(0);
 	ball.body.setCircle(18);
 
 	logo = this.physics.add.image(256, 256, "logo");
@@ -84,8 +84,10 @@ function create() {
 function update() {
 	if (keySpace.isDown)
     {
+		ball.setVelocity(1000);
         console.log('spacebar');
     }
+
 }
 
 function collide() {}
