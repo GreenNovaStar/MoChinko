@@ -9,6 +9,7 @@ var config = {
 		default: "arcade",
 		arcade: {
 			gravity: { y: 200 },
+			debug: true,
 		},
 	},
 	scene: {
@@ -21,11 +22,12 @@ var game = new Phaser.Game(config);
 
 //phaser asset url : https://labs.phaser.io/assets/
 function preload() {
-	this.load.setBaseURL("https://labs.phaser.io");
-	this.load.image("ball", "assets/sprites/spikedball.png");
-
+	// this.load.setBaseURL("https://labs.phaser.io");
+	this.load.setPath("../assets");
+	// this.load.image("ball", "assets/sprites/spikedball.png");
+	this.load.image("logo", "Animal_1.png");
 	this.load.image("sky", "assets/skies/starfield.png");
-	this.load.image("logo", "assets/sprites/slime.png");
+	// this.load.image("logo", "assets/sprites/slime.png");
 	this.load.image("red", "assets/particles/green-orb.png");
 }
 
