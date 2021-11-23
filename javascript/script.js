@@ -7,6 +7,7 @@ var Phaser;
 var pegs;
 var keySpace;
 var cursorKeys;
+var winning;
 
 // ball attributes
 
@@ -57,9 +58,17 @@ function create() {
 		gridAlign: true,
 	});
 
-	for (let i = 0; i < 100; i++) {
-		pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
+	winning = this.physics.add.group({
+		defaultKey: 'score1',
+		collideWorldBounds: true,
+		
+	});
+
+	for (let i = 0; i < 55; i++) {
+		pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg").body.setCircle(11);
 	}
+
+	winning.create(200, height- 50).setScale(.5);
 
 	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
 	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
@@ -118,7 +127,7 @@ function create() {
 	ball = this.physics.add.sprite(width / 2, 100, "ball");
 	ball.setScale(1.0);
 	ball.setCollideWorldBounds(true);
-	ball.setBounce(0.5, 0.5);
+	ball.setBounce(1.0, 1.0);
 	ball.setVelocity(0);
 	ball.body.setCircle(18);
 
@@ -126,7 +135,7 @@ function create() {
 	logo.setScale(0.5); //change the size of the image (1 == default, smaller # is smaller image, larger # is larger image)
 
 	logo.setVelocity(100, 200); //(x,y)
-	logo.setBounce(1, 1); //(x,y) (1 is max, meaning it keeps the same velocity, lower will make it bounch less )
+	logo.setBounce(0.7, 0.7); //(x,y) (1 is max, meaning it keeps the same velocity, lower will make it bounch less )
 	logo.setCollideWorldBounds(true);
 	logo.body.setCircle(22);
 
