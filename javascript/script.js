@@ -108,10 +108,18 @@ function update() {
 	if (keySpace.isDown) {
 		ball.setVelocity(1000);
 		console.log("spacebar");
-	} else if (cursorKeys.left.isDown) {
+	}
+	if (cursorKeys.left.isDown) {
+		ball.setVelocityX(-20);
 		console.log("left key");
-	} else if (cursorKeys.right.isDown) {
+	}
+	if (cursorKeys.right.isDown) {
+		ball.setVelocityX(20);
 		console.log("right key");
+	}
+
+	if (!(cursorKeys.left.isDown || cursorKeys.right.isDown)) {
+		ball.setVelocityX(0);
 	}
 }
 
