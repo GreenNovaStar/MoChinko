@@ -5,7 +5,7 @@ var ball;
 var logo;
 var Phaser;
 var pegs;
-var spaceKey;
+var keySpace;
 
 // ball attributes
 
@@ -43,17 +43,18 @@ function preload() {
 }
 
 function create() {
-	//spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
+	keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+	
 	this.add.image(width / 2, height / 2, "sky");
 	pegs = this.physics.add.staticGroup({
 		key: "peg",
-		frameQuantity: 3,
+		frameQuantity: 40,
 		setScale: { x: 1, y: 1 },
 		collideWorldBounds: true,
 		gridAlign: true,
 	});
-	Phaser.Actions.PlaceOnRectangle(pegs.getChildren(), new Phaser.Geom.Rectangle(84, 84, 616, 416));
+	Phaser.Actions.PlaceOnRectangle(pegs.getChildren(), new Phaser.Geom.Rectangle(50, 300, 50, 416));
 
 	// game.stage.backgroundColor = '#124184';
 
@@ -62,8 +63,8 @@ function create() {
 	ball = this.physics.add.image(width / 2, 100, "ball");
 	ball.setScale(1.0);
 	ball.setCollideWorldBounds(true);
-	ball.setBounce(1, 1);
-	ball.setVelocity(100);
+	ball.setBounce(.5, .5);
+	ball.setVelocity(20);
 	ball.body.setCircle(18);
 
 	logo = this.physics.add.image(256, 256, "logo");
@@ -81,8 +82,10 @@ function create() {
 	this.physics.add.collider(logo, pegs);
 }
 function update() {
-	if (this.spaceKey.isDown) {
-	}
+	if (keySpace.isDown)
+    {
+        console.log('spacebar');
+    }
 }
 
 function collide() {}
