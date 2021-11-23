@@ -1,5 +1,15 @@
+//import  'phaser';
 var width = 512;
 var height = 1024;
+var ball;
+var logo;
+var Phaser;
+var pegs;
+var spaceKey;
+
+// ball attributes
+
+//peg attributes
 
 var config = {
 	type: Phaser.AUTO,
@@ -15,6 +25,7 @@ var config = {
 	scene: {
 		preload: preload,
 		create: create,
+		update: update,
 	},
 };
 
@@ -22,36 +33,56 @@ var game = new Phaser.Game(config);
 
 //phaser asset url : https://labs.phaser.io/assets/
 function preload() {
-	// this.load.setBaseURL("https://labs.phaser.io");
-	this.load.setPath("../assets");
-	// this.load.image("ball", "assets/sprites/spikedball.png");
-	this.load.image("logo", "Animal_1.png");
-	this.load.image("sky", "assets/skies/starfield.png");
-	// this.load.image("logo", "assets/sprites/slime.png");
-	this.load.image("red", "assets/particles/green-orb.png");
+	this.load.setBaseURL("https://labs.phaser.io");
+	this.load.image("sky", "assets/skies/gradient13.png");
+	this.load.image("ball", "assets/sprites/pangball.png");
+	this.load.image("peg", "assets/sprites/orb-red.png");
+
+	this.load.image("logo", "assets/sprites/slime.png");
+	this.load.image("peg2", "assets/particles/green-orb.png");
 }
 
 function create() {
-	this.add.image(256, 256, "sky");
+	//spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+	this.add.image(width / 2, height / 2, "sky");
+	pegs = this.physics.add.staticGroup({
+		key: "peg",
+		frameQuantity: 3,
+		setScale: { x: 1, y: 1 },
+		collideWorldBounds: true,
+		gridAlign: true,
+	});
+	Phaser.Actions.PlaceOnRectangle(pegs.getChildren(), new Phaser.Geom.Rectangle(84, 84, 616, 416));
+
+	// game.stage.backgroundColor = '#124184';
 
 	var particles = this.add.particles("red");
 
-	var emitter = particles.createEmitter({
-		speed: 100,
-		scale: { start: 0.5, end: 0 },
-		blendMode: "ADD",
-	});
-	var ball = this.physics.add.image(width / 2, 20, "ball");
-	ball.setScale(0.5);
+	ball = this.physics.add.image(width / 2, 100, "ball");
+	ball.setScale(1.0);
+	ball.setCollideWorldBounds(true);
+	ball.setBounce(1, 1);
+	ball.setVelocity(100);
+	ball.body.setCircle(18);
 
-	var logo = this.physics.add.image(256, 256, "logo");
+	logo = this.physics.add.image(256, 256, "logo");
 	logo.setScale(0.5); //change the size of the image (1 == default, smaller # is smaller image, larger # is larger image)
 
 	logo.setVelocity(100, 200); //(x,y)
-	logo.setBounce(0.5, 0.9); //(x,y) (1 is max, meaning it keeps the same velocity, lower will make it bounch less )
+	logo.setBounce(1, 1); //(x,y) (1 is max, meaning it keeps the same velocity, lower will make it bounch less )
 	logo.setCollideWorldBounds(true);
+	logo.body.setCircle(22);
 
-	emitter.startFollow(logo);
+	//pegs.body.setCircle(22);
+	pegs.refresh();
+
+	this.physics.add.collider(ball, pegs);
+	this.physics.add.collider(logo, pegs);
+}
+function update() {
+	if (this.spaceKey.isDown) {
+	}
 }
 
-function logKey(space) {}
+function collide() {}

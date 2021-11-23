@@ -1,10 +1,10 @@
 .fancy-header-picture {
 	/* background-image: url("http://i.stack.imgur.com/kx8MT.gif"); */
 	/* background-image: url("https://i.imgur.com/fWarG7C.gif"); */
-	background-image: url("../assets/background_image.gif");
+	/* background-image: url("../assets/background_image.gif"); */
 	/* background-image: url("https://giphy.com/gifs/3ohs869MjAeATgUt0I"); */
-	background-size: cover;
-	box-sizing: border-box;
+	/* background-size: cover; */
+	/* box-sizing: border-box; */
 	width: 100vw;
 	/* height: 100vw; */
 	height: 800px;
