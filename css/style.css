@@ -10,6 +10,11 @@
 	height: 800px;
 }
 
+.list-controls-item {
+	margin-bottom: 10px;
+}
+
+/* game board */
 canvas {
 	display: block;
 	margin: auto;
