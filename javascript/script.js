@@ -19,7 +19,7 @@ var config = {
 	physics: {
 		default: "arcade",
 		arcade: {
-			gravity: { y: 0 },
+			gravity: { y: 200 },
 			debug: true,
 		},
 	},
@@ -41,7 +41,7 @@ function preload() {
 
 	this.load.image("logo", "assets/sprites/slime.png");
 	this.load.image("peg2", "assets/particles/green-orb.png");
-	this.load.image("score1", "assets/particles/blue.png");
+	this.load.image("score1", "assets/particles/blue.png")
 }
 
 function create() {
@@ -56,32 +56,65 @@ function create() {
 		collideWorldBounds: true,
 		gridAlign: true,
 	});
+	
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+ 
+	
 
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
-	pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
 
 	// game.stage.backgroundColor = '#124184';
 
 	var particles = this.add.particles("red");
+
 
 	ball = this.physics.add.sprite(width / 2, 100, "ball");
 	ball.setScale(1.0);
