@@ -59,12 +59,27 @@ function create() {
 		gridAlign: true,
 	});
 
+	winning = this.physics.add.group({
+
+		defaultKey: 'score1',
+		collideWorldBounds: true,
+
+
+
+	});
+
+
 	for (let i = 0; i < 75; i++) {
 		pegs
 			.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg")
 			.body.setCircle(10);
 	}
-	// game.stage.backgroundColor = '#124184';
+		winning.create(200, height-50).setScale(.5);
+		winning.create(450, height-50).setScale(.5);
+		winning.create(300, height-50).setScale(.5);
+		winning.create(50, height-50).setScale(.5);
+
+
 
 	var particles = this.add.particles("red");
 
