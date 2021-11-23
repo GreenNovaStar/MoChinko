@@ -1,0 +1,12 @@
+/* Hero Banner (background Image) */
+/* Code from 
+https://www.w3schools.com/howto/howto_css_hero_image.asp */
+
+.home-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("assets\HomePage\bogdan-mb0sco-arcade-animate.gif");
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
