@@ -9,3 +9,9 @@
 	/* height: 100vw; */
 	height: 800px;
 }
+
+.fa-play {
+	color: aquamarine;
+	stroke: black;
+	stroke-width: 5px;
+}
