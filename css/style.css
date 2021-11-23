@@ -6,12 +6,18 @@
 	/* background-size: cover; */
 	/* box-sizing: border-box; */
 	width: 100vw;
+	background-color: salmon;
 	/* height: 100vw; */
-	height: 800px;
+	height: 1000px;
 }
-
+/* controls-leadboard section */
 .list-controls-item {
 	margin-bottom: 10px;
+	font-size: 1rem;
+}
+.leaderboard-list-item {
+	margin-bottom: 10px;
+	font-size: 2rem;
 }
 
 /* game board */
