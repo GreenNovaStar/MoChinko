@@ -41,6 +41,7 @@ function preload() {
 
 	this.load.image("logo", "assets/sprites/slime.png");
 	this.load.image("peg2", "assets/particles/green-orb.png");
+	this.load.image("score1", "assets/particles/blue.png")
 }
 
 function create() {
@@ -55,11 +56,33 @@ function create() {
 		collideWorldBounds: true,
 		gridAlign: true,
 	});
-	Phaser.Actions.PlaceOnRectangle(pegs.getChildren(), new Phaser.Geom.Rectangle(50, 300, 50, 416));
+	
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
+	pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
 
 	// game.stage.backgroundColor = '#124184';
 
 	var particles = this.add.particles("red");
+
 
 	ball = this.physics.add.sprite(width / 2, 100, "ball");
 	ball.setScale(1.0);
