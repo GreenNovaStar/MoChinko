@@ -45,7 +45,7 @@ function preload() {
 
 function create() {
 	keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-	cursorKeys = scene.input.keyboard.createCursorKeys();
+	cursorKeys = this.input.keyboard.createCursorKeys();
 
 	this.add.image(width / 2, height / 2, "sky");
 	pegs = this.physics.add.staticGroup({
