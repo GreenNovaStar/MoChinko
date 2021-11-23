@@ -16,6 +16,7 @@ var config = {
 	type: Phaser.AUTO,
 	width: width,
 	height: height,
+	parent: "game-window",
 	physics: {
 		default: "arcade",
 		arcade: {
@@ -57,60 +58,11 @@ function create() {
 		gridAlign: true,
 	});
 
-	for (let i = 0; i < 100; i++) {
-		pegs.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg");
+	for (let i = 0; i < 75; i++) {
+		pegs
+			.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg")
+			.body.setCircle(10);
 	}
-
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-	// pegs.create(Phaser.Math.Between(0, width),Phaser.Math.Between(200, height-100),'peg');
-
 	// game.stage.backgroundColor = '#124184';
 
 	var particles = this.add.particles("red");
