@@ -10,6 +10,12 @@
 	height: 800px;
 }
 
+canvas {
+	display: block;
+	margin: auto;
+}
+
+/* Main Page Play Button */
 .fa-play {
 	color: rebeccapurple;
 	stroke: black;
