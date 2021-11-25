@@ -31,7 +31,7 @@ canvas {
 	color: rebeccapurple;
 	stroke: black;
 	stroke-width: 5px;
-	transition: 250ms ease-in-out;
+	transition: 300ms ease-in-out;
 }
 
 .fa-play:hover {

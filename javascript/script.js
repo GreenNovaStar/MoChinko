@@ -12,6 +12,11 @@ var winning;
 // ball attributes
 
 //peg attributes
+//# of pegs per row/col
+var cols = 5;
+var rows = 7;
+var spacing = width / cols;
+var offsetY = 50;
 
 var config = {
 	type: Phaser.AUTO,
@@ -60,30 +65,37 @@ function create() {
 	});
 
 	winning = this.physics.add.group({
-
-		defaultKey: 'score1',
+		defaultKey: "score1",
 		collideWorldBounds: true,
-
-
-
 	});
 
+	// for (let i = 0; i < 75; i++) {
+	// 	pegs
+	// 		.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg")
+	// 		.body.setCircle(10);
+	// }
 
-	for (let i = 0; i < 75; i++) {
-		pegs
-			.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg")
-			.body.setCircle(10);
+	//added the plinko pieces, and offsetted it
+	//variables are initialized on the top  --brian
+	for (let i = 0; i < rows; i++) {
+		for (let j = 0; j < cols; j++) {
+			let x = j * spacing;
+			if (i % 2 == 0) {
+				x += spacing / 2;
+			}
+			let y = spacing + i * spacing;
+			pegs.create(x, y + offsetY, "peg").body.setCircle(10);
+		}
 	}
-		winning.create(200, height-50).setScale(.5);
-		winning.create(450, height-50).setScale(.5);
-		winning.create(300, height-50).setScale(.5);
-		winning.create(50, height-50).setScale(.5);
 
-
+	winning.create(200, height - 50).setScale(0.5);
+	winning.create(450, height - 50).setScale(0.5);
+	winning.create(300, height - 50).setScale(0.5);
+	winning.create(50, height - 50).setScale(0.5);
 
 	var particles = this.add.particles("red");
 
-	ball = this.physics.add.sprite(width / 2, 100, "ball");
+	ball = this.physics.add.sprite(width / 2, 30, "ball");
 	ball.setScale(1.0);
 	ball.setCollideWorldBounds(true);
 	ball.setBounce(1.0, 1.0);
