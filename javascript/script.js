@@ -8,7 +8,7 @@ var pegs;
 var keySpace;
 var cursorKeys;
 var winning;
-
+var boxes = [];
 // ball attributes
 
 //peg attributes
@@ -95,6 +95,32 @@ function create() {
 
 	var particles = this.add.particles("red");
 
+	// boxes = this.add.rectangle(0, height, 50, 200, 0xff0000);
+	var b = this.add.rectangle(width / 2, height + 150, width, 100, 0xff0000);
+	boxes.push(b);
+	for (var i = 0; i < cols + 2; i++) {
+		var x = i * spacing;
+		var h = 80;
+		var w = 10;
+		var y = height - h / 2;
+		var b = this.add.rectangle(x, y, w, h, 0xff0000);
+		boxes.push(b);
+	}
+
+	/*
+		var b = new Boundary(width / 2, height + 50, width, 100);
+		bounds.push(b);
+
+		for (var i = 0; i < cols + 2; i++) {
+			var x = i * spacing;
+			var h = 100;
+			var w = 10;
+			var y = height - h / 2;
+			var b = new Boundary(x, y, w, h);
+			bounds.push(b);
+		}
+		}
+	*/
 	ball = this.physics.add.sprite(width / 2, 30, "ball");
 	ball.setScale(1.0);
 	ball.setCollideWorldBounds(true);
