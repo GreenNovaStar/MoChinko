@@ -13,8 +13,8 @@ var boxes = [];
 
 //peg attributes
 //# of pegs per row/col
-var cols = 5;
-var rows = 7;
+var cols = 9;
+var rows = 14;
 var spacing = width / cols;
 var offsetY = 50;
 
@@ -78,7 +78,7 @@ function create() {
 	//added the plinko pieces, and offsetted it
 	//variables are initialized on the top  --brian
 	for (let i = 0; i < rows; i++) {
-		for (let j = 0; j < cols; j++) {
+		for (let j = 0; j < cols + 1; j++) {
 			let x = j * spacing;
 			if (i % 2 == 0) {
 				x += spacing / 2;
@@ -108,19 +108,6 @@ function create() {
 		boxes.push(b);
 	}
 
-	/*
-		var b = new Boundary(width / 2, height + 50, width, 100);
-		bounds.push(b);
-
-		for (var i = 0; i < cols + 2; i++) {
-			var x = i * spacing;
-			var h = 100;
-			var w = 10;
-			var y = height - h / 2;
-			var b = new Boundary(x, y, w, h);
-			bounds.push(b);
-		}
-	*/
 	ball = this.physics.add.sprite(width / 2, 30, "ball");
 	ball.setScale(1.0);
 	ball.setCollideWorldBounds(true);
