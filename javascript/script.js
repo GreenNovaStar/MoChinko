@@ -95,11 +95,12 @@ function create() {
 
 	var particles = this.add.particles("red");
 
-	// boxes = this.add.rectangle(0, height, 50, 200, 0xff0000);
-	var b = this.add.rectangle(width / 2, height + 150, width, 100, 0xff0000);
+	// need to add collision box --brian
+	var numBoxes = width / 8;
+	var b = this.add.rectangle(width / 2, height + 45, width, 100, 0xff0000);
 	boxes.push(b);
-	for (var i = 0; i < cols + 2; i++) {
-		var x = i * spacing;
+	for (var i = 0; i < numBoxes; i++) {
+		var x = i * numBoxes;
 		var h = 80;
 		var w = 10;
 		var y = height - h / 2;
@@ -118,7 +119,6 @@ function create() {
 			var y = height - h / 2;
 			var b = new Boundary(x, y, w, h);
 			bounds.push(b);
-		}
 		}
 	*/
 	ball = this.physics.add.sprite(width / 2, 30, "ball");
