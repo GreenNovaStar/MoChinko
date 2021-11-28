@@ -14,14 +14,15 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- JQuery import -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- JQuery Code for loading navbar -->
     <script>
-        $(function(){
+        $(function () {
             $('#navbar').load('generalhtml/navbar.html')
         })
     </script>
-    
+
     <title>MoChinko</title>
 </head>
 
@@ -31,9 +32,9 @@
     <div class="container-fluid text-center">
         <div class="row content">
             <div class="col-sm-2 sidenav">
-                <!-- <p><a href="#">Link</a></p>
                 <p><a href="#">Link</a></p>
-                <p><a href="#">Link</a></p> -->
+                <p><a href="#">Link</a></p>
+                <p><a href="#">Link</a></p>
             </div>
             <div class="game-page col-sm-8 text-left">
                 <h1>MoChinko</h1>
@@ -43,21 +44,22 @@
                 </div>
                 <div class="row">
                     <div class="game-window col-lg" id="game-window"></div>
+                    <!-- <div class="emptySpace"></div> -->
                     <div class="leaderboard-controls col-sm">
                         <div class="controls">
                             <h2>Controls:</h2>
                             <ul>
-                                <li class="list-controls-item d-flex justify-content-start">Press
+                                <li class="list-controls-item d-flex justify-content-center">Press
                                     &nbsp<kbd>&#8592;</kbd>&nbsp to
                                     move
                                     ball to the
                                     left</li>
-                                <li class="list-controls-item d-flex justify-content-start">Press
+                                <li class="list-controls-item d-flex justify-content-center">Press
                                     &nbsp<kbd>&#8594;</kbd>&nbsp to
                                     move
                                     ball to the
                                     right</li>
-                                <li class="list-controls-item d-flex justify-content-start">Press
+                                <li class="list-controls-item d-flex justify-content-center">Press
                                     &nbsp<kbd>Spacebar</kbd>&nbsp to
                                     drop
                                     the ball
@@ -82,6 +84,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-sm-2 sidenav">
+                <p><a href="#">Link</a></p>
+                <p><a href="#">Link</a></p>
+                <p><a href="#">Link</a></p>
             </div>
         </div>
     </div>

@@ -4,37 +4,43 @@ https://www.w3schools.com/howto/howto_css_hero_image.asp */
 
 /* main page banner */
 .home-image {
-    background-image: url("../assets/HomePage/bogdan-mb0sco-arcade-animate.gif");
-    height: 100vh;
-    /* width: 100vw; */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative; 
+	background-image: url("../assets/HomePage/bogdan-mb0sco-arcade-animate.gif");
+	height: 100vh;
+	/* width: 100vw; */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
 }
 
 .home-text {
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
 }
 /* End Main page banner */
-
 
 /* Main Page Play Button */
 .fa-play {
 	color: rebeccapurple;
 	stroke: black;
-	stroke-width: 5px;
+	stroke-width: 10px;
 	transition: 300ms ease-in-out;
 }
 
 .fa-play:hover {
 	color: aquamarine;
 	stroke: black;
-	stroke-width: 5px;
+	stroke-width: 20px;
 }
 /* End Main page Play Button */
+
+/* H1 text */
+h1 {
+	font-size: 5rem;
+	font-weight: bold;
+	-webkit-text-stroke: 4px black;
+}
