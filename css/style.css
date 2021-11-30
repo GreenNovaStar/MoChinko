@@ -15,6 +15,7 @@
 canvas {
 	display: block;
 	margin: auto;
+	margin-right: 0px;
 }
 
 .header-nav {
