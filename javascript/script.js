@@ -18,8 +18,8 @@ var score = 0;
 
 //peg attributes
 //# of pegs per row/col
-var cols = 9;
-var rows = 14;
+var cols = 7;
+var rows = 11;
 var spacing = width / cols;
 var offsetY = 50;
 
@@ -131,28 +131,17 @@ function create() {
 	winning.create(351, height - winningheight).setScale(0.35);
 	winning.create(415, height - winningheight).setScale(0.35);
 	winning.create(477, height - winningheight).setScale(0.35);
-	// this going to call collide function which will handle our scoreing and reseting of the ball.
 
-
-
-	//logo = this.physics.add.image(256, 256, "logo");
-	//logo.setScale(0.5); //change the size of the image (1 == default, smaller # is smaller image, larger # is larger image)
-
-	//logo.setVelocity(100, 200); //(x,y)
-	//logo.setBounce(0.7, 0.7); //(x,y) (1 is max, meaning it keeps the same velocity, lower will make it bounch less )
-	//logo.setCollideWorldBounds(true);
-	//logo.body.setCircle(22);
-
-	//pegs.body.setCircle(22);
 	pegs.refresh();
 
 	this.physics.add.collider(ball, pegs);
 	this.physics.add.collider(ball, boxes);
-	this.physics.add.collider(ball, winning);
 
 	this.physics.add.overlap(ball, winning, overlapscore);
 
- //	this.physics.add.collider(logo, pegs);
+
+
+
 
 }
 function update() 
@@ -195,8 +184,23 @@ function update()
 
 function overlapscore (ball, winning)
  {
+	 
 	 winning.body.enable = false;
-	 score = Phaser.Math.Add(score, 20);
+	 score += 10;
+//	 resetball();
+
+ }
+
+ function resetball()
+ {	
+	 ball.setPosition(width / 2, 30);
+	 isBallReleased = false;
+	 ball.setBounce(1.0, 0.8);
+	 ball.setVelocity(0);
+	 ball.setGravityY(0);
+
+
+
 
  }
  
