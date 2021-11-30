@@ -27,7 +27,7 @@ var config = {
 		default: "arcade",
 		arcade: {
 			gravity: { y: 200 },
-			debug: true,
+			debug: false,
 		},
 	},
 	scene: {
@@ -58,7 +58,7 @@ function create() {
 	this.add.image(width / 2, height / 2, "sky");
 	pegs = this.physics.add.staticGroup({
 		key: "peg",
-		frameQuantity: 40,
+		frameQuantity: 0,
 		setScale: { x: 1, y: 1 },
 		collideWorldBounds: true,
 		gridAlign: true,
@@ -109,25 +109,25 @@ function create() {
 	}
 
 	ball = this.physics.add.sprite(width / 2, 30, "ball");
-	ball.setScale(1.0);
+	ball.setScale(.8);
 	ball.setCollideWorldBounds(true);
-	ball.setBounce(1.0, 1.0);
-	ball.setVelocity(0);
-	ball.body.setCircle(18);
+	ball.setBounce(0.7, 0.7);
+	ball.setVelocity(100, 200);
+	ball.body.setCircle(17);
 
-	logo = this.physics.add.image(256, 256, "logo");
-	logo.setScale(0.5); //change the size of the image (1 == default, smaller # is smaller image, larger # is larger image)
+	//logo = this.physics.add.image(256, 256, "logo");
+	//logo.setScale(0.5); //change the size of the image (1 == default, smaller # is smaller image, larger # is larger image)
 
-	logo.setVelocity(100, 200); //(x,y)
-	logo.setBounce(0.7, 0.7); //(x,y) (1 is max, meaning it keeps the same velocity, lower will make it bounch less )
-	logo.setCollideWorldBounds(true);
-	logo.body.setCircle(22);
+	//logo.setVelocity(100, 200); //(x,y)
+	//logo.setBounce(0.7, 0.7); //(x,y) (1 is max, meaning it keeps the same velocity, lower will make it bounch less )
+	//logo.setCollideWorldBounds(true);
+	//logo.body.setCircle(22);
 
 	//pegs.body.setCircle(22);
 	pegs.refresh();
 
 	this.physics.add.collider(ball, pegs);
-	this.physics.add.collider(logo, pegs);
+ //	this.physics.add.collider(logo, pegs);
 }
 function update() {
 	if (keySpace.isDown) {
