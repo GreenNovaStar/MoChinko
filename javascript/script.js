@@ -14,7 +14,12 @@ var boxes = [];
 var isBallReleased = false;
 var winningheight = 35;
 var score = 0;
+var timedEvent;
+
 // ball attributes
+//html valuse
+var text;
+//var scores = document.getElementById("score-value");
 
 //peg attributes
 //# of pegs per row/col
@@ -61,6 +66,7 @@ function preload() {
 function create() {
 	keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 	cursorKeys = this.input.keyboard.createCursorKeys();
+	text = this.add.text(10, 10, 'Score: 0', { font: '32px Courier', fill: '#3333ff' });
 
 	this.add.image(width / 2, height / 2, "sky");
 	ball = this.physics.add.sprite(width / 2, 30, "ball");
@@ -138,19 +144,19 @@ function create() {
 	this.physics.add.collider(ball, boxes);
 
 	this.physics.add.overlap(ball, winning, overlapscore);
-
-
-
-
-
+	
+	
+	
+	
 }
 function update() 
 {
+	text.setText('Score: ' + score);
 	if (keySpace.isDown) 
 	{
-        if(!isBallReleased)
+		if(!isBallReleased)
         {
-            ball.setVelocity(Phaser.Math.Between(-200, 200), Phaser.Math.Between(5, width));
+			ball.setVelocity(Phaser.Math.Between(-200, 200), Phaser.Math.Between(5, width));
             ball.setGravityY(200);
             isBallReleased = true;
             console.log("spacebar");
@@ -158,48 +164,50 @@ function update()
     }
     if (cursorKeys.left.isDown) 
     {
-        if(!isBallReleased)
+		if(!isBallReleased)
         {
-            ball.setVelocityX(-20);
+			ball.setVelocityX(-20);
             console.log("left key");
         }
     }
     if (cursorKeys.right.isDown) 
 	{
-        if(!isBallReleased)
+		if(!isBallReleased)
         {
-            ball.setVelocityX(20);
+			ball.setVelocityX(20);
             console.log("right key");
         }
     }
-
+	
     if (!(cursorKeys.left.isDown || cursorKeys.right.isDown))
-	 {
-        if(!isBallReleased)
+	{
+		if(!isBallReleased)
         {
-            ball.setVelocityX(0);
+			ball.setVelocityX(0);
         }
-     }
+	}
 }
 
 function overlapscore (ball, winning)
- {
-	 
-	 winning.body.enable = false;
-	 score += 10;
-//	 resetball();
+{
+	
+	winning.body.enable = false;
+	score += 10;
+	resetball();
+	
+	
+	
+}
 
- }
-
- function resetball()
- {	
-	 ball.setPosition(width / 2, 30);
-	 isBallReleased = false;
-	 ball.setBounce(1.0, 0.8);
-	 ball.setVelocity(0);
-	 ball.setGravityY(0);
-
-
+function resetball()
+{	
+	ball.setPosition(width / 2, 30);
+	isBallReleased = false;
+	ball.setBounce(1.0, 0.8);
+	ball.setVelocity(0);
+	ball.setGravityY(0);
+	
+	
 
 
  }
