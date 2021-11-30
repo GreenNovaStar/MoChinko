@@ -41,6 +41,8 @@ var game = new Phaser.Game(config);
 
 //phaser asset url : https://labs.phaser.io/assets/
 function preload() {
+	// this.load.setPath("../assets/");
+	// this.load.image("ball", "Animal_1.png");
 	this.load.setBaseURL("https://labs.phaser.io");
 	this.load.image("sky", "assets/skies/gradient13.png");
 	this.load.image("ball", "assets/sprites/pangball.png");
