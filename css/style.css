@@ -1,16 +1,7 @@
-.fancy-header-picture {
-	/* background-image: url("http://i.stack.imgur.com/kx8MT.gif"); */
-	/* background-image: url("https://i.imgur.com/fWarG7C.gif"); */
-	/* background-image: url("../assets/background_image.gif"); */
-	/* background-image: url("https://giphy.com/gifs/3ohs869MjAeATgUt0I"); */
-	/* background-size: cover; */
-	/* box-sizing: border-box; */
-	width: 100vw;
-	background-color: salmon;
-	/* height: 100vw; */
-	height: 1000px;
-}
 /* controls-leadboard section */
+.leaderboard-controls {
+	/* max-width: 1000px !important; */
+}
 .list-controls-item {
 	margin-bottom: 10px;
 	font-size: 1rem;
@@ -24,18 +15,9 @@
 canvas {
 	display: block;
 	margin: auto;
+	margin-right: 0px;
 }
 
-/* Main Page Play Button */
-.fa-play {
-	color: rebeccapurple;
-	stroke: black;
-	stroke-width: 5px;
-	transition: 300ms ease-in-out;
-}
-
-.fa-play:hover {
-	color: aquamarine;
-	stroke: black;
-	stroke-width: 5px;
+.header-nav {
+	background-color: var(--primary-color);
 }
