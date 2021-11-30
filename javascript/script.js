@@ -1,6 +1,8 @@
 //import  'phaser';
+//screen attributes
 var width = 512;
 var height = 1024;
+//declare the ball, logo pegs and keys, winning pegs
 var ball;
 var logo;
 var Phaser;
@@ -9,6 +11,9 @@ var keySpace;
 var cursorKeys;
 var winning;
 var boxes = [];
+var isBallReleased = false;
+var winningheight = 35;
+var score = 0;
 // ball attributes
 
 //peg attributes
@@ -26,8 +31,8 @@ var config = {
 	physics: {
 		default: "arcade",
 		arcade: {
-			gravity: { y: 200 },
-			debug: false,
+			gravity: { y: 0 },
+			debug: true,
 		},
 	},
 	scene: {
@@ -58,6 +63,14 @@ function create() {
 	cursorKeys = this.input.keyboard.createCursorKeys();
 
 	this.add.image(width / 2, height / 2, "sky");
+	ball = this.physics.add.sprite(width / 2, 30, "ball");
+	ball.setScale(.8);
+	ball.setCollideWorldBounds(true);
+	ball.setBounce(1.0, 0.8);
+	ball.setVelocity(0);
+	ball.body.setCircle(17); 
+
+	
 	pegs = this.physics.add.staticGroup({
 		key: "peg",
 		frameQuantity: 0,
@@ -86,36 +99,41 @@ function create() {
 				x += spacing / 2;
 			}
 			let y = spacing + i * spacing;
-			pegs.create(x, y + offsetY, "peg").body.setCircle(10);
+			pegs.create(x, y + offsetY, "peg").body.setCircle(11);
 		}
 	}
-
-	winning.create(200, height - 50).setScale(0.5);
-	winning.create(450, height - 50).setScale(0.5);
-	winning.create(300, height - 50).setScale(0.5);
-	winning.create(50, height - 50).setScale(0.5);
 
 	var particles = this.add.particles("red");
 
 	// need to add collision box --brian
 	var numBoxes = width / 8;
-	var b = this.add.rectangle(width / 2, height + 45, width, 100, 0xff0000);
+	var b = this.add.rectangle(width / 2, height + 40, width, 100, 0x79FF33);
 	boxes.push(b);
-	for (var i = 0; i < numBoxes; i++) {
+	for (var i = 0; i < numBoxes; i++)
+	 {
+
 		var x = i * numBoxes;
 		var h = 80;
 		var w = 10;
 		var y = height - h / 2;
-		var b = this.add.rectangle(x, y, w, h, 0xff0000);
+		b = this.add.rectangle(x, y, w, h, 0x79FF33);
+		this.physics.add.existing(b);
+		b.body.setCollideWorldBounds(true);
+		b.body.setImmovable();
 		boxes.push(b);
 	}
 
-	ball = this.physics.add.sprite(width / 2, 30, "ball");
-	ball.setScale(.8);
-	ball.setCollideWorldBounds(true);
-	ball.setBounce(0.7, 0.7);
-	ball.setVelocity(100, 200);
-	ball.body.setCircle(17);
+    winning.create(35, height - winningheight).setScale(0.35);
+	winning.create(95, height - winningheight).setScale(0.35);
+	winning.create(160, height - winningheight).setScale(0.35);
+    winning.create(225, height - winningheight).setScale(0.35);
+    winning.create(289, height - winningheight).setScale(0.35);
+	winning.create(351, height - winningheight).setScale(0.35);
+	winning.create(415, height - winningheight).setScale(0.35);
+	winning.create(477, height - winningheight).setScale(0.35);
+	// this going to call collide function which will handle our scoreing and reseting of the ball.
+
+
 
 	//logo = this.physics.add.image(256, 256, "logo");
 	//logo.setScale(0.5); //change the size of the image (1 == default, smaller # is smaller image, larger # is larger image)
@@ -129,25 +147,56 @@ function create() {
 	pegs.refresh();
 
 	this.physics.add.collider(ball, pegs);
+	this.physics.add.collider(ball, boxes);
+	this.physics.add.collider(ball, winning);
+
+	this.physics.add.overlap(ball, winning, overlapscore);
+
  //	this.physics.add.collider(logo, pegs);
-}
-function update() {
-	if (keySpace.isDown) {
-		ball.setVelocity(1000);
-		console.log("spacebar");
-	}
-	if (cursorKeys.left.isDown) {
-		ball.setVelocityX(-20);
-		console.log("left key");
-	}
-	if (cursorKeys.right.isDown) {
-		ball.setVelocityX(20);
-		console.log("right key");
-	}
 
-	if (!(cursorKeys.left.isDown || cursorKeys.right.isDown)) {
-		ball.setVelocityX(0);
-	}
+}
+function update() 
+{
+	if (keySpace.isDown) 
+	{
+        if(!isBallReleased)
+        {
+            ball.setVelocity(Phaser.Math.Between(-200, 200), Phaser.Math.Between(5, width));
+            ball.setGravityY(200);
+            isBallReleased = true;
+            console.log("spacebar");
+        }
+    }
+    if (cursorKeys.left.isDown) 
+    {
+        if(!isBallReleased)
+        {
+            ball.setVelocityX(-20);
+            console.log("left key");
+        }
+    }
+    if (cursorKeys.right.isDown) 
+	{
+        if(!isBallReleased)
+        {
+            ball.setVelocityX(20);
+            console.log("right key");
+        }
+    }
+
+    if (!(cursorKeys.left.isDown || cursorKeys.right.isDown))
+	 {
+        if(!isBallReleased)
+        {
+            ball.setVelocityX(0);
+        }
+     }
 }
 
-function collide() {}
+function overlapscore (ball, winning)
+ {
+	 winning.body.enable = false;
+	 score = Phaser.Math.Add(score, 20);
+
+ }
+ 
