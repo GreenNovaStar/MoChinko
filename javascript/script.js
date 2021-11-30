@@ -41,6 +41,8 @@ var game = new Phaser.Game(config);
 
 //phaser asset url : https://labs.phaser.io/assets/
 function preload() {
+	// this.load.setPath("../assets/");
+	// this.load.image("ball", "Animal_1.png");
 	this.load.setBaseURL("https://labs.phaser.io");
 	this.load.image("sky", "assets/skies/gradient13.png");
 	this.load.image("ball", "assets/sprites/pangball.png");
@@ -58,7 +60,7 @@ function create() {
 	this.add.image(width / 2, height / 2, "sky");
 	pegs = this.physics.add.staticGroup({
 		key: "peg",
-		frameQuantity: 40,
+		frameQuantity: 0,
 		setScale: { x: 1, y: 1 },
 		collideWorldBounds: true,
 		gridAlign: true,
@@ -113,7 +115,7 @@ function create() {
 	ball.setCollideWorldBounds(true);
 	ball.setBounce(1.0, 1.0);
 	ball.setVelocity(0);
-	ball.body.setCircle(18);
+	ball.body.setCircle(16);
 
 	logo = this.physics.add.image(256, 256, "logo");
 	logo.setScale(0.5); //change the size of the image (1 == default, smaller # is smaller image, larger # is larger image)

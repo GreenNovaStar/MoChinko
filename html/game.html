@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/style.css">
     <!--link to phaser code -->
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
@@ -29,66 +31,40 @@
 <body>
 
     <div id="navbar"></div>
-    <div class="container-fluid text-center">
-        <div class="row content">
-            <div class="col-sm-2 sidenav">
-                <p><a href="#">Link</a></p>
-                <p><a href="#">Link</a></p>
-                <p><a href="#">Link</a></p>
+
+    <div class="container">
+        <div class="row align-items-lg-start">
+            <h1 class="mt-5 pt-3 d-flex justify-content-center">MoChinko</h1>
+            <hr>
+            <div class="score d-flex justify-content-center">
+                <h2>Score: <span class="score-value" id="score-value">0</span></h2>
             </div>
-            <div class="game-page col-sm-8 text-left">
-                <h1>MoChinko</h1>
-                <hr>
-                <div class="score">
-                    <h2>Score: <span class="score-value" id="score-value">0</span></h2>
-                </div>
-                <div class="row">
-                    <div class="game-window col-lg" id="game-window"></div>
-                    <!-- <div class="emptySpace"></div> -->
-                    <div class="leaderboard-controls col-sm">
-                        <div class="controls">
-                            <h2>Controls:</h2>
-                            <ul>
-                                <li class="list-controls-item d-flex justify-content-center">Press
-                                    &nbsp<kbd>&#8592;</kbd>&nbsp to
-                                    move
-                                    ball to the
-                                    left</li>
-                                <li class="list-controls-item d-flex justify-content-center">Press
-                                    &nbsp<kbd>&#8594;</kbd>&nbsp to
-                                    move
-                                    ball to the
-                                    right</li>
-                                <li class="list-controls-item d-flex justify-content-center">Press
-                                    &nbsp<kbd>Spacebar</kbd>&nbsp to
-                                    drop
-                                    the ball
-                                </li>
-                            </ul>
-                        </div>
-                        <hr>
-                        <div class="leaderboard">
-                            <h2>Leaderboard:</h2>
-                            <ol class="leaderboard-list" id="leaderboard-list">
-                                <li class="leaderboard-list-item">9999</li>
-                                <li class="leaderboard-list-item">4200</li>
-                                <li class="leaderboard-list-item">1337</li>
-                                <li class="leaderboard-list-item">690</li>
-                                <li class="leaderboard-list-item">420</li>
-                                <li class="leaderboard-list-item">200</li>
-                                <li class="leaderboard-list-item">101</li>
-                                <li class="leaderboard-list-item">90</li>
-                                <li class="leaderboard-list-item">30</li>
-                                <li class="leaderboard-list-item">10</li>
-                            </ol>
-                        </div>
+            <div class="col-sm-8" id="game-window"></div>
+            <div class="col-lg-4 row">
+                <div class="leaderboard-controls" style="width: 300px;">
+                    <div class="controls col">
+                        <h2 class=""><u>Controls</u></h2>
+                        <p>Press &nbsp<kbd>&#8592;</kbd>&nbsp to move ball to the left</p>
+                        <p>Press &nbsp<kbd>&#8594;</kbd>&nbsp to move ball to the right</p>
+                        <p>Press &nbsp<kbd>Spacebar</kbd>&nbsp to drop the ball</p>
+                    </div>
+                    <hr>
+                    <div class="leaderboard col">
+                        <h2><u>Leaderboard:</u></h2>
+                        <ol class="leaderboard-list" id="leaderboard-list">
+                            <li class="leaderboard-list-item">9999</li>
+                            <li class="leaderboard-list-item">4200</li>
+                            <li class="leaderboard-list-item">1337</li>
+                            <li class="leaderboard-list-item">690</li>
+                            <li class="leaderboard-list-item">420</li>
+                            <li class="leaderboard-list-item">200</li>
+                            <li class="leaderboard-list-item">101</li>
+                            <li class="leaderboard-list-item">90</li>
+                            <li class="leaderboard-list-item">30</li>
+                            <li class="leaderboard-list-item">10</li>
+                        </ol>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-2 sidenav">
-                <p><a href="#">Link</a></p>
-                <p><a href="#">Link</a></p>
-                <p><a href="#">Link</a></p>
             </div>
         </div>
     </div>

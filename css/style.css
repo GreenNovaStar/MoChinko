@@ -1,4 +1,7 @@
 /* controls-leadboard section */
+.leaderboard-controls {
+	/* max-width: 1000px !important; */
+}
 .list-controls-item {
 	margin-bottom: 10px;
 	font-size: 1rem;
@@ -14,3 +17,6 @@ canvas {
 	margin: auto;
 }
 
+.header-nav {
+	background-color: var(--primary-color);
+}
