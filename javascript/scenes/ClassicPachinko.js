@@ -9,7 +9,7 @@ var ClassicPachinkoState = new Phaser.Class({
 		// Preload images for this state
 		this.load.setBaseURL("https://labs.phaser.io");
 
-		this.load.image("bg4", "assets/skies/gradient4.png");
+		this.load.image("bg4", "assets/skies/gradient8.png");
 	},
 
 	create: function () {

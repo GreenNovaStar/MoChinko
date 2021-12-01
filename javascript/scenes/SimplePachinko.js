@@ -10,8 +10,8 @@ var SimplePachinkoState = new Phaser.Class({
 	update: Update,
 });
 
-var cols = 9;
-var rows = 14;
+var cols = 7;
+var rows = 11;
 var spacing = width / cols;
 var offsetY = 50;
 var pegs;
@@ -19,6 +19,11 @@ var keySpace;
 var cursorKeys;
 var winning;
 var boxes = [];
+var isBallReleased = false;
+var winningheight = 35;
+var score = 0;
+var timedEvent;
+var text;
 
 function Preload() {
 	// Preload images for this state
@@ -43,9 +48,6 @@ function Create() {
 	let scale = Math.max(scaleX, scaleY);
 	image.setScale(scale).setScrollFactor(0);
 
-	keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-	cursorKeys = this.input.keyboard.createCursorKeys();
-
 	const goBack = this.add
 		.text(width - 50, 30, "X", { fill: "#0f0" })
 		.setInteractive()
@@ -53,6 +55,17 @@ function Create() {
 			// game.scene.remove("LevelSelect");
 			game.scene.stop("Simple");
 		});
+
+	keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+	cursorKeys = this.input.keyboard.createCursorKeys();
+	text = this.add.text(10, 10, "Score: 0", { font: "32px Courier", fill: "#3333ff" });
+
+	ball = this.physics.add.sprite(width / 2, 30, "ball");
+	ball.setScale(0.8);
+	ball.setCollideWorldBounds(true);
+	ball.setBounce(1.0, 0.8);
+	ball.setVelocity(0);
+	ball.body.setCircle(17);
 
 	pegs = this.physics.add.staticGroup({
 		key: "peg",
@@ -67,12 +80,6 @@ function Create() {
 		collideWorldBounds: true,
 	});
 
-	// for (let i = 0; i < 75; i++) {
-	// 	pegs
-	// 		.create(Phaser.Math.Between(0, width), Phaser.Math.Between(200, height - 100), "peg")
-	// 		.body.setCircle(10);
-	// }
-
 	//added the plinko pieces, and offsetted it
 	//variables are initialized on the top  --brian
 	for (let i = 0; i < rows; i++) {
@@ -82,69 +89,87 @@ function Create() {
 				x += spacing / 2;
 			}
 			let y = spacing + i * spacing;
-			pegs.create(x, y + offsetY, "peg").body.setCircle(10);
+			pegs.create(x, y + offsetY, "peg").body.setCircle(11);
 		}
 	}
-
-	winning.create(200, height - 50).setScale(0.5);
-	winning.create(450, height - 50).setScale(0.5);
-	winning.create(300, height - 50).setScale(0.5);
-	winning.create(50, height - 50).setScale(0.5);
 
 	var particles = this.add.particles("red");
 
 	// need to add collision box --brian
 	var numBoxes = width / 8;
-	var b = this.add.rectangle(width / 2, height + 45, width, 100, 0xff0000);
+	var b = this.add.rectangle(width / 2, height + 40, width, 100, 0x79ff33);
 	boxes.push(b);
 	for (var i = 0; i < numBoxes; i++) {
 		var x = i * numBoxes;
 		var h = 80;
 		var w = 10;
 		var y = height - h / 2;
-		var b = this.add.rectangle(x, y, w, h, 0xff0000);
+		b = this.add.rectangle(x, y, w, h, 0x79ff33);
+		this.physics.add.existing(b);
+		b.body.setCollideWorldBounds(true);
+		b.body.setImmovable();
 		boxes.push(b);
 	}
 
-	ball = this.physics.add.sprite(width / 2, 30, "ball");
-	ball.setScale(1.0);
-	ball.setCollideWorldBounds(true);
-	ball.setBounce(1.0, 1.0);
-	ball.setVelocity(0);
-	ball.body.setCircle(16);
+	winning.create(35, height - winningheight).setScale(0.35);
+	winning.create(95, height - winningheight).setScale(0.35);
+	winning.create(160, height - winningheight).setScale(0.35);
+	winning.create(225, height - winningheight).setScale(0.35);
+	winning.create(289, height - winningheight).setScale(0.35);
+	winning.create(351, height - winningheight).setScale(0.35);
+	winning.create(415, height - winningheight).setScale(0.35);
+	winning.create(477, height - winningheight).setScale(0.35);
 
-	logo = this.physics.add.image(256, 256, "logo");
-	logo.setScale(0.5); //change the size of the image (1 == default, smaller # is smaller image, larger # is larger image)
-
-	logo.setVelocity(100, 200); //(x,y)
-	logo.setBounce(0.7, 0.7); //(x,y) (1 is max, meaning it keeps the same velocity, lower will make it bounch less )
-	logo.setCollideWorldBounds(true);
-	logo.body.setCircle(22);
-
-	//pegs.body.setCircle(22);
 	pegs.refresh();
 
 	this.physics.add.collider(ball, pegs);
-	this.physics.add.collider(logo, pegs);
+	this.physics.add.collider(ball, boxes);
+
+	this.physics.add.overlap(ball, winning, overlapscore);
 }
 
 function Update() {
+	text.setText("Score: " + score);
 	if (keySpace.isDown) {
-		ball.setVelocity(1000);
-		console.log("spacebar");
+		if (!isBallReleased) {
+			ball.setVelocity(Phaser.Math.Between(-200, 200), Phaser.Math.Between(5, width));
+			ball.setGravityY(200);
+			isBallReleased = true;
+			console.log("spacebar");
+		}
 	}
 	if (cursorKeys.left.isDown) {
-		ball.setVelocityX(-20);
-		console.log("left key");
+		if (!isBallReleased) {
+			ball.setVelocityX(-20);
+			console.log("left key");
+		}
 	}
 	if (cursorKeys.right.isDown) {
-		ball.setVelocityX(20);
-		console.log("right key");
+		if (!isBallReleased) {
+			ball.setVelocityX(20);
+			console.log("right key");
+		}
 	}
 
 	if (!(cursorKeys.left.isDown || cursorKeys.right.isDown)) {
-		ball.setVelocityX(0);
+		if (!isBallReleased) {
+			ball.setVelocityX(0);
+		}
 	}
+}
+
+function overlapscore(ball, winning) {
+	winning.body.enable = false;
+	score += 10;
+	resetball();
+}
+
+function resetball() {
+	ball.setPosition(width / 2, 30);
+	isBallReleased = false;
+	ball.setBounce(1.0, 0.8);
+	ball.setVelocity(0);
+	ball.setGravityY(0);
 }
 // Add scene to list of scenes
 myGame.scenes.push(SimplePachinkoState);
