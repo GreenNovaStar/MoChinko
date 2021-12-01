@@ -48,13 +48,19 @@ function Create() {
 	let scale = Math.max(scaleX, scaleY);
 	image.setScale(scale).setScrollFactor(0);
 
-	const goBack = this.add
-		.text(width - 50, 30, "X", { fill: "#0f0" })
-		.setInteractive()
-		.on("pointerdown", () => {
-			// game.scene.remove("LevelSelect");
-			game.scene.stop("Simple");
-		});
+	let closeButton = this.add.text(width - 50, 30, "X", { fill: "#0f0" });
+	closeButton.setScale(0.08);
+	closeButton.setInteractive(
+		new Phaser.Geom.Rectangle(0, 600, 700, 700),
+		Phaser.Geom.Rectangle.Contains
+	);
+	closeButton.on("pointerdown", () => {
+		game.scene.stop("Simple");
+		console.log("simple: close button clicked");
+	});
+	closeButton.on("pointerover", () => {
+		console.log("simple: close button hover");
+	});
 
 	keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 	cursorKeys = this.input.keyboard.createCursorKeys();

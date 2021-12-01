@@ -7,9 +7,12 @@ var LeaderboardState = new Phaser.Class({
 
 	preload: function () {
 		// Preload images for this state
-		this.load.setBaseURL("https://labs.phaser.io");
+		// this.load.setBaseURL("https://labs.phaser.io");
 
-		this.load.image("bg6", "assets/skies/gradient6.png");
+		// this.load.image("bg6", "assets/skies/gradient6.png");
+		this.load.setPath("../../assets/Scene Assets/");
+		this.load.image("close-btn", "delete.png");
+		this.load.image("bg6", "Background/gradient6.png");
 	},
 
 	create: function () {
@@ -21,13 +24,24 @@ var LeaderboardState = new Phaser.Class({
 		let scale = Math.max(scaleX, scaleY);
 		image.setScale(scale).setScrollFactor(0);
 
-		const goBack = this.add
-			.text(width - 50, 30, "X", { fill: "#0f0" })
-			.setInteractive()
-			.on("pointerdown", () => {
-				// game.scene.remove("LevelSelect");
-				game.scene.stop("Leaderboard");
-			});
+		let closeButton = this.add.image(width - 50, 50, "close-btn");
+		closeButton.setScale(0.08);
+		closeButton.setInteractive(
+			new Phaser.Geom.Rectangle(0, 600, 700, 700),
+			Phaser.Geom.Rectangle.Contains
+		);
+		closeButton.on("pointerdown", () => {
+			game.scene.stop("Leaderboard");
+		});
+		closeButton.on("pointerover", () => {});
+
+		// const goBack = this.add
+		// 	.text(width - 50, 30, "X", { fill: "#0f0" })
+		// 	.setInteractive()
+		// 	.on("pointerdown", () => {
+		// 		// game.scene.remove("LevelSelect");
+		// 		game.scene.stop("Leaderboard");
+		// 	});
 	},
 
 	update: function () {

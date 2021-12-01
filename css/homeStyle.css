@@ -34,7 +34,7 @@ https://www.w3schools.com/howto/howto_css_hero_image.asp */
 
 /* Main Page Play Button */
 .fa-play {
-	color: rgb(255, 0, 119);
+	color: var(--primary-color);
 	stroke: var(--primary-color);
 	/* stroke-width: 10px; */
 	filter: drop-shadow(3px 4px 10px rgb(0 0 0 / 0.6));
@@ -43,10 +43,10 @@ https://www.w3schools.com/howto/howto_css_hero_image.asp */
 
 .fa-play:hover {
 	/* color: rgb(255, 0, 119); */
-	color: var(--secondary-color);
+	color: var(--primary-color);
 	/* color: inset -6em -3em 0 0 var(--primary-color) !important; */
 	filter: drop-shadow(4px 6px 10px rgb(0 0 0 / 0.6));
-	stroke: var(--primary-color);
+	stroke: var(--secondary-color);
 	stroke-width: 20px;
 }
 /* End Main page Play Button */
