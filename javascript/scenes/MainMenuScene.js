@@ -34,11 +34,13 @@ function Create() {
 	// game.scene.start("GamePlay");
 
 	//scale background image to fit the width
-	let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg2");
-	let scaleX = this.cameras.main.width / image.width;
-	let scaleY = this.cameras.main.height / image.height;
-	let scale = Math.max(scaleX, scaleY);
-	image.setScale(scale).setScrollFactor(0);
+	// let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg2");
+	// let scaleX = this.cameras.main.width / image.width;
+	// let scaleY = this.cameras.main.height / image.height;
+	// let scale = Math.max(scaleX, scaleY);
+	// image.setScale(scale).setScrollFactor(0);
+
+	loadBackground(this, "bg2");
 
 	const logo = this.add.text(xOffset - 78, yOffset, "Mochinko!", { fontSize: 90, fill: "#0f0" });
 

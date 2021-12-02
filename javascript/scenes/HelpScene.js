@@ -18,11 +18,13 @@ var HelpState = new Phaser.Class({
 	create: function () {
 		// Create objects
 		console.log("Help");
-		let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg7");
-		let scaleX = this.cameras.main.width / image.width;
-		let scaleY = this.cameras.main.height / image.height;
-		let scale = Math.max(scaleX, scaleY);
-		image.setScale(scale).setScrollFactor(0);
+		// let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg7");
+		// let scaleX = this.cameras.main.width / image.width;
+		// let scaleY = this.cameras.main.height / image.height;
+		// let scale = Math.max(scaleX, scaleY);
+		// image.setScale(scale).setScrollFactor(0);
+
+		loadBackground(this, "bg7");
 
 		const help = this.add.text(30, 30, "Help/Controls", { fontSize: 48, fill: "#0f0" });
 

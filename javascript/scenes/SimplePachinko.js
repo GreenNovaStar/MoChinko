@@ -42,11 +42,13 @@ function Preload() {
 function Create() {
 	// Create objects
 	console.log("Simple Pachinko");
-	let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg5");
-	let scaleX = this.cameras.main.width / image.width;
-	let scaleY = this.cameras.main.height / image.height;
-	let scale = Math.max(scaleX, scaleY);
-	image.setScale(scale).setScrollFactor(0);
+	// let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg5");
+	// let scaleX = this.cameras.main.width / image.width;
+	// let scaleY = this.cameras.main.height / image.height;
+	// let scale = Math.max(scaleX, scaleY);
+	// image.setScale(scale).setScrollFactor(0);
+
+	loadBackground(this, "bg5");
 
 	let closeButton = this.add.text(width - 50, 30, "X", { fill: "#0f0" });
 	closeButton.setScale(0.08);

@@ -27,11 +27,13 @@ function Preload() {
 function Create() {
 	console.log("Level Select");
 	// game.scene.start("GamePlay");
-	let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg3");
-	let scaleX = this.cameras.main.width / image.width;
-	let scaleY = this.cameras.main.height / image.height;
-	let scale = Math.max(scaleX, scaleY);
-	image.setScale(scale).setScrollFactor(0);
+	// let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg3");
+	// let scaleX = this.cameras.main.width / image.width;
+	// let scaleY = this.cameras.main.height / image.height;
+	// let scale = Math.max(scaleX, scaleY);
+	// image.setScale(scale).setScrollFactor(0);
+
+	loadBackground(this, "bg3");
 
 	let hoverball = this.add.sprite(100, 100, "ball-sprite");
 	hoverball.setScale(0.08);

@@ -24,15 +24,18 @@ function Preload() {
 
 var gameIndex = 0;
 var title;
+var topScores;
 
 function Create() {
 	// Create objects
 	console.log("Leaderboard");
-	let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg6");
-	let scaleX = this.cameras.main.width / image.width;
-	let scaleY = this.cameras.main.height / image.height;
-	let scale = Math.max(scaleX, scaleY);
-	image.setScale(scale).setScrollFactor(0);
+	// let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg6");
+	// let scaleX = this.cameras.main.width / image.width;
+	// let scaleY = this.cameras.main.height / image.height;
+	// let scale = Math.max(scaleX, scaleY);
+	// image.setScale(scale).setScrollFactor(0);
+
+	loadBackground(this, "bg6");
 
 	const leaderboard = this.add.text(30, 30, "Leaderboard", { fontSize: 48, fill: "#0f0" });
 
@@ -83,10 +86,16 @@ function Create() {
 		fontSize: 48,
 		fill: "#0f0",
 	});
+
+	topScores = this.add.text(50, 230, loadLeaderboardScores(gameIndex), {
+		fontSize: 32,
+		fill: "#0f0",
+	});
 }
 
 function Update() {
 	title.setText(gameNames[gameIndex]);
+	topScores.setText(loadLeaderboardScores(gameIndex));
 }
 
 // Add scene to list of scenes

@@ -18,11 +18,13 @@ var ClassicPachinkoState = new Phaser.Class({
 	create: function () {
 		// Create objects
 		console.log("Classic Pachinko");
-		let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg8");
-		let scaleX = this.cameras.main.width / image.width;
-		let scaleY = this.cameras.main.height / image.height;
-		let scale = Math.max(scaleX, scaleY);
-		image.setScale(scale).setScrollFactor(0);
+		// let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg8");
+		// let scaleX = this.cameras.main.width / image.width;
+		// let scaleY = this.cameras.main.height / image.height;
+		// let scale = Math.max(scaleX, scaleY);
+		// image.setScale(scale).setScrollFactor(0);
+
+		loadBackground(this, "bg8");
 
 		let closeButton = this.add.image(width - 50, 50, "close-btn");
 		closeButton.setScale(0.08);
