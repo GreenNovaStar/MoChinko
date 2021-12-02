@@ -61,10 +61,11 @@ function Create() {
 
 	// create a classic pachinko selector
 	let ClassicPachinko = this.add.image(xOffset + 50, yOffset + 150, "classic");
-	ClassicPachinko.setInteractive(
-		new Phaser.Geom.Rectangle(0, 60, 65, 65),
-		Phaser.Geom.Rectangle.Contains
-	);
+	ClassicPachinko
+		.setInteractive
+		// new Phaser.Geom.Rectangle(0, 60, 65, 65),
+		// Phaser.Geom.Rectangle.Contains
+		();
 	ClassicPachinko.on("pointerdown", () => {
 		game.scene.start("Classic");
 		// console.log("play game button");
@@ -81,10 +82,11 @@ function Create() {
 
 	// create simple pachinko selector
 	let SimplePachinko = this.add.image(xOffset + 50, yOffset + 250, "simple");
-	SimplePachinko.setInteractive(
-		new Phaser.Geom.Rectangle(0, 60, 65, 65),
-		Phaser.Geom.Rectangle.Contains
-	);
+	SimplePachinko
+		.setInteractive
+		// new Phaser.Geom.Rectangle(0, 60, 65, 65),
+		// Phaser.Geom.Rectangle.Contains
+		();
 	SimplePachinko.on("pointerdown", () => {
 		game.scene.start("Simple");
 		// console.log("play game button");

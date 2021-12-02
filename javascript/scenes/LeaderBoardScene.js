@@ -55,10 +55,11 @@ function Create() {
 	//left arrow button
 	let arrowLeftButton = this.add.image(50, 150, "arrow-left");
 	arrowLeftButton.setScale(0.1);
-	arrowLeftButton.setInteractive(
-		new Phaser.Geom.Rectangle(0, 600, 525, 525),
-		Phaser.Geom.Rectangle.Contains
-	);
+	arrowLeftButton
+		.setInteractive
+		// new Phaser.Geom.Rectangle(0, 600, 525, 525),
+		// Phaser.Geom.Rectangle.Contains
+		();
 	arrowLeftButton.on("pointerdown", () => {
 		if (gameIndex == 0) {
 			gameIndex = gameNames.length - 1;
@@ -71,10 +72,11 @@ function Create() {
 	//right arrow button
 	let arrowRightButton = this.add.image(width - 50, 150, "arrow-right");
 	arrowRightButton.setScale(0.1);
-	arrowRightButton.setInteractive(
-		new Phaser.Geom.Rectangle(0, 600, 525, 525),
-		Phaser.Geom.Rectangle.Contains
-	);
+	arrowRightButton
+		.setInteractive
+		// new Phaser.Geom.Rectangle(0, 600, 525, 525),
+		// Phaser.Geom.Rectangle.Contains
+		();
 	arrowRightButton.on("pointerdown", () => {
 		if (gameIndex == gameNames.length - 1) {
 			gameIndex = 0;

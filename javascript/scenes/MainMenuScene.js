@@ -70,8 +70,8 @@ function Create() {
 	let playButton = this.add.image(width / 2, yOffset + 200, "play-btn");
 	playButton
 		.setInteractive
-		//new Phaser.Geom.Rectangle(0, 60, 300, 50),
-		//Phaser.Geom.Rectangle.Contains
+		// new Phaser.Geom.Rectangle(0, 60, 300, 50),
+		// Phaser.Geom.Rectangle.Contains
 		();
 	playButton.on("pointerdown", () => {
 		game.scene.start("LevelSelect");
@@ -91,8 +91,8 @@ function Create() {
 	let leaderboardButton = this.add.image(width / 2, yOffset + 300, "leaderboard-btn");
 	leaderboardButton
 		.setInteractive
-		//new Phaser.Geom.Rectangle(0, 60, 300, 50),
-		//Phaser.Geom.Rectangle.Contains
+		// new Phaser.Geom.Rectangle(0, 60, 300, 50),
+		// Phaser.Geom.Rectangle.Contains
 		();
 	leaderboardButton.on("pointerdown", () => {
 		game.scene.start("Leaderboard");
@@ -110,10 +110,11 @@ function Create() {
 
 	//load help button asset and functionality
 	let helpButton = this.add.image(width / 2, yOffset + 400, "help-btn");
-	helpButton.setInteractive(
-		//new Phaser.Geom.Rectangle(0, 60, 150, 50),
-		Phaser.Geom.Rectangle.Contains
-	);
+	helpButton
+		.setInteractive
+		// new Phaser.Geom.Rectangle(0, 60, 150, 50),
+		// Phaser.Geom.Rectangle.Contains
+		();
 	helpButton.on("pointerdown", () => {
 		game.scene.start("Help");
 		// console.log("help button");
