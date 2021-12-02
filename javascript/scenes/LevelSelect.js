@@ -39,19 +39,23 @@ function Create() {
 	hoverball.setScale(0.08);
 	hoverball.setVisible(false);
 
-	const levelSelect = this.add.text(30, 30, "Level Select", { fontSize: 48, fill: "#0f0" });
+	const levelSelectTitle = this.add.text(30, 30, "Level Select", { fontSize: 48, fill: "#0f0" });
 
-	let closeButton = this.add.image(width - 50, 50, "close-btn");
-	closeButton.setScale(0.08);
-	closeButton.setInteractive(
-		new Phaser.Geom.Rectangle(0, 600, 700, 700),
-		Phaser.Geom.Rectangle.Contains
-	);
-	closeButton.on("pointerdown", () => {
-		game.scene.stop("LevelSelect");
-	});
-	closeButton.on("pointerover", () => {});
+	// create a close button and its functionality
+	// let closeButton = this.add.image(width - 50, 50, "close-btn");
+	// closeButton.setScale(0.08);
+	// closeButton.setInteractive(
+	// 	new Phaser.Geom.Rectangle(0, 600, 700, 700),
+	// 	Phaser.Geom.Rectangle.Contains
+	// );
+	// closeButton.on("pointerdown", () => {
+	// 	game.scene.stop("LevelSelect");
+	// });
+	// closeButton.on("pointerover", () => {});
 
+	createCloseButton(this, "LevelSelect");
+
+	// create a classic pachinko selector
 	let ClassicPachinko = this.add.image(xOffset + 50, yOffset + 150, "classic");
 	ClassicPachinko.setInteractive(
 		new Phaser.Geom.Rectangle(0, 60, 65, 65),
@@ -70,6 +74,7 @@ function Create() {
 		hoverball.setVisible(false);
 	});
 
+	// create simple pachinko selector
 	let SimplePachinko = this.add.image(xOffset + 50, yOffset + 250, "simple");
 	SimplePachinko.setInteractive(
 		new Phaser.Geom.Rectangle(0, 60, 65, 65),

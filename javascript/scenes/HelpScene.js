@@ -28,16 +28,18 @@ var HelpState = new Phaser.Class({
 
 		const help = this.add.text(30, 30, "Help/Controls", { fontSize: 48, fill: "#0f0" });
 
-		let closeButton = this.add.image(width - 50, 50, "close-btn");
-		closeButton.setScale(0.08);
-		closeButton.setInteractive(
-			new Phaser.Geom.Rectangle(0, 600, 700, 700),
-			Phaser.Geom.Rectangle.Contains
-		);
-		closeButton.on("pointerdown", () => {
-			game.scene.stop("Help");
-		});
-		closeButton.on("pointerover", () => {});
+		// let closeButton = this.add.image(width - 50, 50, "close-btn");
+		// closeButton.setScale(0.08);
+		// closeButton.setInteractive(
+		// 	new Phaser.Geom.Rectangle(0, 600, 700, 700),
+		// 	Phaser.Geom.Rectangle.Contains
+		// );
+		// closeButton.on("pointerdown", () => {
+		// 	game.scene.stop("Help");
+		// });
+		// closeButton.on("pointerover", () => {});
+
+		createCloseButton(this, "Help");
 	},
 
 	update: function () {

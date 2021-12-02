@@ -26,16 +26,18 @@ var ClassicPachinkoState = new Phaser.Class({
 
 		loadBackground(this, "bg8");
 
-		let closeButton = this.add.image(width - 50, 50, "close-btn");
-		closeButton.setScale(0.08);
-		closeButton.setInteractive(
-			new Phaser.Geom.Rectangle(0, 600, 700, 700),
-			Phaser.Geom.Rectangle.Contains
-		);
-		closeButton.on("pointerdown", () => {
-			game.scene.stop("Classic");
-		});
-		closeButton.on("pointerover", () => {});
+		// let closeButton = this.add.image(width - 50, 50, "close-btn");
+		// closeButton.setScale(0.08);
+		// closeButton.setInteractive(
+		// 	new Phaser.Geom.Rectangle(0, 600, 700, 700),
+		// 	Phaser.Geom.Rectangle.Contains
+		// );
+		// closeButton.on("pointerdown", () => {
+		// 	game.scene.stop("Classic");
+		// });
+		// closeButton.on("pointerover", () => {});
+
+		createCloseButton(this, "Classic");
 	},
 
 	update: function () {

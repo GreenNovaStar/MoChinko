@@ -39,16 +39,18 @@ function Create() {
 
 	const leaderboard = this.add.text(30, 30, "Leaderboard", { fontSize: 48, fill: "#0f0" });
 
-	let closeButton = this.add.image(width - 50, 50, "close-btn");
-	closeButton.setScale(0.08);
-	closeButton.setInteractive(
-		new Phaser.Geom.Rectangle(0, 600, 700, 700),
-		Phaser.Geom.Rectangle.Contains
-	);
-	closeButton.on("pointerdown", () => {
-		game.scene.stop("Leaderboard");
-	});
-	closeButton.on("pointerover", () => {});
+	// let closeButton = this.add.image(width - 50, 50, "close-btn");
+	// closeButton.setScale(0.08);
+	// closeButton.setInteractive(
+	// 	new Phaser.Geom.Rectangle(0, 600, 700, 700),
+	// 	Phaser.Geom.Rectangle.Contains
+	// );
+	// closeButton.on("pointerdown", () => {
+	// 	game.scene.stop("Leaderboard");
+	// });
+	// closeButton.on("pointerover", () => {});
+
+	createCloseButton(this, "Leaderboard");
 
 	//left arrow button
 	let arrowLeftButton = this.add.image(50, 150, "arrow-left");
