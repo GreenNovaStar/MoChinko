@@ -21,3 +21,18 @@ canvas {
 .header-nav {
 	background-color: var(--primary-color);
 }
+
+.footer-style {
+	background-color: var(--primary-color);
+}
+
+
+/* main section of game page */
+main {
+	/* background-image: url("../assets/HomePage/AEGateway_1983ArcadeBar_E_ByKelseyLawson.jpg"); */
+	background-image: url("../assets/HomePage/bogdan-mb0sco-arcade-animate.gif");
+	background-repeat: no-repeat;
+	height: 100vh;
+	background-position: center;
+	background-size: cover;
+}

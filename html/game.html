@@ -25,7 +25,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- JQuery Code for loading navbar -->
-    <script>$(function () { $('#navbar').load('generalhtml/navbar.html') })</script>
+    <script>
+    $(function () { $('#navbar').load('generalhtml/navbar.html') })
+    $(function () {$('#footer').load('generalhtml/footer.html')})
+    </script>
+    
 
     <!-- Phaser Javascript imports -->
     <script src="../javascript/utils/globalVariables.js"></script>
@@ -46,45 +50,47 @@
 
     <div id="navbar"></div>
 
-    <div class="container">
-        <div class="row align-items-lg-start">
-            <h1 class="d-flex justify-content-center">MoChinko</h1>
-            <hr>
-            <div class="score d-flex justify-content-center">
-                <h2>Score: <span class="score-value" id="score-value">0</span></h2>
-            </div>
-            <div class="col-sm-8" id="game-window"></div>
-            <div class="col-lg-4 row">
-                <div class="leaderboard-controls" style="width: 300px;">
-                    <div class="controls col">
-                        <h2 class=""><u>Controls</u></h2>
-                        <p>Press &nbsp<kbd>&#8592;</kbd>&nbsp to move ball to the left</p>
-                        <p>Press &nbsp<kbd>&#8594;</kbd>&nbsp to move ball to the right</p>
-                        <p>Press &nbsp<kbd>Spacebar</kbd>&nbsp to drop the ball</p>
-                    </div>
-                    <hr>
-                    <div class="leaderboard col">
-                        <h2><u>Leaderboard:</u></h2>
-                        <ol class="leaderboard-list" id="leaderboard-list">
-                            <li class="leaderboard-list-item">9999</li>
-                            <li class="leaderboard-list-item">4200</li>
-                            <li class="leaderboard-list-item">1337</li>
-                            <li class="leaderboard-list-item">690</li>
-                            <li class="leaderboard-list-item">420</li>
-                            <li class="leaderboard-list-item">200</li>
-                            <li class="leaderboard-list-item">101</li>
-                            <li class="leaderboard-list-item">90</li>
-                            <li class="leaderboard-list-item">30</li>
-                            <li class="leaderboard-list-item">10</li>
-                        </ol>
+    <main>
+        <div class="container">
+            <div class="row align-items-lg-start">
+                <h1 class="d-flex justify-content-center">MoChinko</h1>
+                <hr>
+                <div class="score d-flex justify-content-center">
+                    <h2>Score: <span class="score-value" id="score-value">0</span></h2>
+                </div>
+                <div class="col-sm-8" id="game-window"></div>
+                <div class="col-lg-4 row">
+                    <div class="leaderboard-controls" style="width: 300px;">
+                        <div class="controls col">
+                            <h2 class=""><u>Controls</u></h2>
+                            <p>Press &nbsp<kbd>&#8592;</kbd>&nbsp to move ball to the left</p>
+                            <p>Press &nbsp<kbd>&#8594;</kbd>&nbsp to move ball to the right</p>
+                            <p>Press &nbsp<kbd>Spacebar</kbd>&nbsp to drop the ball</p>
+                        </div>
+                        <hr>
+                        <div class="leaderboard col">
+                            <h2><u>Leaderboard:</u></h2>
+                            <ol class="leaderboard-list" id="leaderboard-list">
+                                <li class="leaderboard-list-item">9999</li>
+                                <li class="leaderboard-list-item">4200</li>
+                                <li class="leaderboard-list-item">1337</li>
+                                <li class="leaderboard-list-item">690</li>
+                                <li class="leaderboard-list-item">420</li>
+                                <li class="leaderboard-list-item">200</li>
+                                <li class="leaderboard-list-item">101</li>
+                                <li class="leaderboard-list-item">90</li>
+                                <li class="leaderboard-list-item">30</li>
+                                <li class="leaderboard-list-item">10</li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
-    <footer class="container-fluid text-center">
-        <p>Footer Text</p>
+    <footer>
+        <div id="footer"></div>
     </footer>
 
 </body>
