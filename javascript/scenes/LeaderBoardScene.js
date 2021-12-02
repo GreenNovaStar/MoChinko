@@ -90,7 +90,7 @@ function Create() {
 	});
 
 	topScores = this.add.text(50, 230, loadLeaderboardScores(gameIndex), {
-		fontSize: 32,
+		fontSize: 40,
 		fill: "#0f0",
 	});
 

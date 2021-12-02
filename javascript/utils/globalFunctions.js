@@ -10,8 +10,8 @@ function loadBackground(game, key) {
 function loadLeaderboardScores(gameIndex) {
 	var scoreList = "";
 	for (let i = 0; i < gameScores[gameIndex].length; i++) {
-		if (i + 1 < 10) scoreList += " " + (i + 1) + ". " + gameScores[gameIndex][i] + "\n";
-		else scoreList += i + 1 + ". " + gameScores[gameIndex][i] + "\n";
+		if (i + 1 < 10) scoreList += " " + (i + 1) + ". " + gameScores[gameIndex][i] + "\n\n";
+		else scoreList += i + 1 + ". " + gameScores[gameIndex][i] + "\n\n";
 	}
 
 	if (scoreList == "") scoreList = "No Scores Recorded.";
@@ -45,46 +45,3 @@ function addScoreToLeaderboard(gameIndex, score) {
 		});
 	}
 }
-
-/*
-var storeBestTimes = function() {
-  let currentTime = minutes * 6000 + seconds * 100 + milliseconds;
-  if (bestTimes[test].length < 3) {
-    bestTimes[test].push([currentTime]);
-    bestTimes[test].sort(function(a, b) {
-      return a - b;
-    });
-  } else if (bestTimes[test][2] > 0 && bestTimes[test][2] != -1) {
-    console.log(
-      "minutes = " + minutes < 10
-        ? "0" + minutes
-        : minutes + "\nseconds = " + seconds < 10
-        ? "0" + seconds
-        : seconds + "\nmilli = " + milliseconds < 10
-        ? "0" + milliseconds
-        : milliseconds
-    );
-    if (bestTimes[test].length > 2) {
-      let time = bestTimes[test][2];
-
-      if (currentTime < time) {
-        bestTimes[test][2] = currentTime;
-        bestTimes[test].sort(function(a, b) {
-          return a - b;
-        });
-      }
-    }
-  } else {
-    bestTimes[test][2] = currentTime;
-    bestTimes[test].sort(function(a, b) {
-      return a - b;
-    });
-  }
-
-  // else{
-  //   bestTimes[test].push([currentTime]);
-  //   bestTimes[test].sort(function(a, b){return a - b});
-  // }
-  fillLeaderBoard();
-  console.log(bestTimes);
-};*/
