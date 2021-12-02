@@ -15,7 +15,7 @@ function Preload() {
 	// this.load.setBaseURL("https://labs.phaser.io");
 
 	// this.load.image("bg6", "assets/skies/gradient6.png");
-	this.load.setPath("../../assets/Scene Assets/");
+	this.load.setPath("../../assets/Scene_Assets/");
 	this.load.image("close-btn", "delete.png");
 	this.load.image("bg6", "Background/gradient6.png");
 	this.load.image("arrow-left", "arrow_left.png");

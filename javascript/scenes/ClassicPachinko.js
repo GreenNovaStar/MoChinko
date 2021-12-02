@@ -10,7 +10,7 @@ var ClassicPachinkoState = new Phaser.Class({
 		// this.load.setBaseURL("https://labs.phaser.io");
 
 		// this.load.image("bg4", "assets/skies/gradient8.png");
-		this.load.setPath("../../Mochinko/assets/Scene Assets/");
+		this.load.setPath("../../Mochinko/assets/Scene_Assets/");
 		this.load.image("close-btn", "delete.png");
 		this.load.image("bg8", "Background/gradient8.png");
 		this.load.image("blueball", "blue_ball.png");
