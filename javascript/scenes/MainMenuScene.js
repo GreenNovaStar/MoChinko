@@ -15,7 +15,7 @@ let yOffset = 100;
 let xOffset = 100;
 
 function Preload() {
-	this.load.setPath("../../assets/Scene_Assets/");
+	this.load.setPath("../../Mochinko/assets/Scene_Assets/");
 	this.load.image("play-btn", "MainMenu/PlayGame.png");
 	this.load.image("leaderboard-btn", "MainMenu/Leaderboard.png");
 	this.load.image("help-btn", "MainMenu/Help.png");
@@ -35,7 +35,7 @@ function Preload() {
 }
 function Create() {
 	console.log("MainMenu");
-	game.scene.start("Classic");
+	// game.scene.start("Classic");
 
 	//scale background image to fit the width
 	// let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg2");

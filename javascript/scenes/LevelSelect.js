@@ -17,7 +17,7 @@ function Preload() {
 	// this.load.setBaseURL("https://labs.phaser.io");
 
 	// this.load.image("bg3", "assets/skies/gradient3.png");
-	this.load.setPath("../../assets/Scene_Assets/");
+	this.load.setPath("../../Mochinko/assets/Scene_Assets/");
 	this.load.image("close-btn", "delete.png");
 	this.load.image("bg3", "Background/gradient3.png");
 	this.load.image("classic", "Temp Assets/blocka.png");
