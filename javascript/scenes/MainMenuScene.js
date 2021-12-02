@@ -15,7 +15,7 @@ let yOffset = 100;
 let xOffset = 100;
 
 function Preload() {
-	this.load.setPath("../../assets/Scene Assets/");
+	this.load.setPath("../../assets/Scene_Assets/");
 	this.load.image("play-btn", "MainMenu/PlayGame.png");
 	this.load.image("leaderboard-btn", "MainMenu/Leaderboard.png");
 	this.load.image("help-btn", "MainMenu/Help.png");
@@ -35,7 +35,7 @@ function Preload() {
 }
 function Create() {
 	console.log("MainMenu");
-	 game.scene.start("Classic");
+	game.scene.start("Classic");
 
 	//scale background image to fit the width
 	// let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg2");
@@ -68,10 +68,11 @@ function Create() {
 
 	//load play button asset and functionality
 	let playButton = this.add.image(width / 2, yOffset + 200, "play-btn");
-	playButton.setInteractive(
+	playButton
+		.setInteractive
 		//new Phaser.Geom.Rectangle(0, 60, 300, 50),
 		//Phaser.Geom.Rectangle.Contains
-	);
+		();
 	playButton.on("pointerdown", () => {
 		game.scene.start("LevelSelect");
 		// console.log("play game button");
@@ -88,10 +89,11 @@ function Create() {
 
 	//load leaderboard button asset and functionality
 	let leaderboardButton = this.add.image(width / 2, yOffset + 300, "leaderboard-btn");
-	leaderboardButton.setInteractive(
+	leaderboardButton
+		.setInteractive
 		//new Phaser.Geom.Rectangle(0, 60, 300, 50),
 		//Phaser.Geom.Rectangle.Contains
-	);
+		();
 	leaderboardButton.on("pointerdown", () => {
 		game.scene.start("Leaderboard");
 		// console.log("leaderboard button");
