@@ -23,6 +23,10 @@ function Preload() {
 	this.load.image("classic", "Temp Assets/blocka.png");
 	this.load.image("simple", "Temp Assets/blockb.png");
 	this.load.image("ball-sprite", "medicine-ball.png");
+	this.load.spritesheet("shift-balls", "Temp Assets/balls.png", {
+		frameHeight: 17,
+		frameWidth: 17,
+	});
 }
 function Create() {
 	console.log("Level Select");
@@ -35,24 +39,24 @@ function Create() {
 
 	loadBackground(this, "bg3");
 
-	let hoverball = this.add.sprite(100, 100, "ball-sprite");
-	hoverball.setScale(0.08);
+	//create a ball that shows up when hovered
+	let hoverball = this.add.sprite(100, 100, "shift-balls");
+	// hoverball.setScale(0.08);
+	hoverball.setScale(2);
 	hoverball.setVisible(false);
+
+	this.anims.create({
+		key: "change-color",
+		frameRate: 3,
+		repeat: -1,
+		frames: this.anims.generateFrameNumbers("shift-balls", {
+			frames: [0, 1, 2, 3, 4, 5],
+		}),
+	});
 
 	const levelSelectTitle = this.add.text(30, 30, "Level Select", { fontSize: 48, fill: "#0f0" });
 
 	// create a close button and its functionality
-	// let closeButton = this.add.image(width - 50, 50, "close-btn");
-	// closeButton.setScale(0.08);
-	// closeButton.setInteractive(
-	// 	new Phaser.Geom.Rectangle(0, 600, 700, 700),
-	// 	Phaser.Geom.Rectangle.Contains
-	// );
-	// closeButton.on("pointerdown", () => {
-	// 	game.scene.stop("LevelSelect");
-	// });
-	// closeButton.on("pointerover", () => {});
-
 	createCloseButton(this, "LevelSelect");
 
 	// create a classic pachinko selector
@@ -67,6 +71,7 @@ function Create() {
 	});
 	ClassicPachinko.on("pointerover", () => {
 		hoverball.setVisible(true);
+		hoverball.play("change-color");
 		hoverball.x = ClassicPachinko.x - 80;
 		hoverball.y = ClassicPachinko.y;
 	});
@@ -86,6 +91,7 @@ function Create() {
 	});
 	SimplePachinko.on("pointerover", () => {
 		hoverball.setVisible(true);
+		hoverball.play("change-color");
 		hoverball.x = SimplePachinko.x - 80;
 		hoverball.y = SimplePachinko.y;
 	});

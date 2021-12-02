@@ -13,6 +13,7 @@ var HelpState = new Phaser.Class({
 		this.load.setPath("../../assets/Scene Assets/");
 		this.load.image("close-btn", "delete.png");
 		this.load.image("bg7", "Background/gradient7.png");
+		this.load.image("controls", "Controls.png");
 	},
 
 	create: function () {
@@ -40,6 +41,8 @@ var HelpState = new Phaser.Class({
 		// closeButton.on("pointerover", () => {});
 
 		createCloseButton(this, "Help");
+
+		this.add.image(width / 2 + 20, height / 2.5, "controls");
 	},
 
 	update: function () {

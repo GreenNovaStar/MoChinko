@@ -21,6 +21,10 @@ function Preload() {
 	this.load.image("help-btn", "MainMenu/Help.png");
 	this.load.image("ball-sprite", "medicine-ball.png");
 	this.load.image("bg2", "Background/gradient2.png");
+	this.load.spritesheet("shift-balls", "Temp Assets/balls.png", {
+		frameHeight: 17,
+		frameWidth: 17,
+	});
 
 	// this.load.setBaseURL("https://labs.phaser.io");
 
@@ -45,9 +49,19 @@ function Create() {
 	const logo = this.add.text(xOffset - 78, yOffset, "Mochinko!", { fontSize: 90, fill: "#0f0" });
 
 	//create a ball that shows up when hovered
-	let hoverball = this.add.sprite(100, 100, "ball-sprite");
-	hoverball.setScale(0.08);
+	let hoverball = this.add.sprite(100, 100, "shift-balls");
+	// hoverball.setScale(0.08);
+	hoverball.setScale(2);
 	hoverball.setVisible(false);
+
+	this.anims.create({
+		key: "change-color",
+		frameRate: 3,
+		repeat: -1,
+		frames: this.anims.generateFrameNumbers("shift-balls", {
+			frames: [0, 1, 2, 3, 4, 5],
+		}),
+	});
 
 	//disable right click on mouse
 	this.input.mouse.disableContextMenu();
@@ -64,6 +78,7 @@ function Create() {
 	});
 	playButton.on("pointerover", () => {
 		hoverball.setVisible(true);
+		hoverball.play("change-color");
 		hoverball.x = playButton.x - 200;
 		hoverball.y = playButton.y;
 	});
@@ -83,6 +98,7 @@ function Create() {
 	});
 	leaderboardButton.on("pointerover", () => {
 		hoverball.setVisible(true);
+		hoverball.play("change-color");
 		hoverball.x = leaderboardButton.x - 200;
 		hoverball.y = leaderboardButton.y;
 	});
@@ -102,6 +118,7 @@ function Create() {
 	});
 	helpButton.on("pointerover", () => {
 		hoverball.setVisible(true);
+		hoverball.play("change-color");
 		hoverball.x = helpButton.x - 200;
 		hoverball.y = helpButton.y;
 	});
