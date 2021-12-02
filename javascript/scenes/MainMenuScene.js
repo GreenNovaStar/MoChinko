@@ -15,7 +15,7 @@ let yOffset = 100;
 let xOffset = 100;
 
 function Preload() {
-	this.load.setPath("../../Mochinko/assets/Scene_Assets/");
+	this.load.setPath("../../MoChinko/assets/Scene_Assets/");
 	this.load.image("play-btn", "MainMenu/PlayGame.png");
 	this.load.image("leaderboard-btn", "MainMenu/Leaderboard.png");
 	this.load.image("help-btn", "MainMenu/Help.png");
