@@ -21,10 +21,11 @@ function loadLeaderboardScores(gameIndex) {
 function createCloseButton(game, sceneName) {
 	let closeButton = game.add.image(width - 50, 50, "close-btn");
 	closeButton.setScale(0.08);
-	closeButton.setInteractive(
-		new Phaser.Geom.Rectangle(0, 600, 700, 700),
-		Phaser.Geom.Rectangle.Contains
-	);
+	closeButton
+		.setInteractive
+		// new Phaser.Geom.Rectangle(0, 600, 700, 700),
+		// Phaser.Geom.Rectangle.Contains
+		();
 	closeButton.on("pointerdown", () => {
 		game.scene.stop(sceneName);
 	});

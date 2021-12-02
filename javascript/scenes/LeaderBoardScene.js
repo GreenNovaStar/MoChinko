@@ -97,10 +97,11 @@ function Create() {
 	});
 
 	let addRandomScore = this.add.text(50, height - 100, "Add Random Score");
-	addRandomScore.setInteractive(
-		new Phaser.Geom.Rectangle(0, 50, 525, 525),
-		Phaser.Geom.Rectangle.Contains
-	);
+	addRandomScore
+		.setInteractive
+		// new Phaser.Geom.Rectangle(0, 50, 525, 525),
+		// Phaser.Geom.Rectangle.Contains
+		();
 	addRandomScore.on("pointerdown", () => {
 		console.log("add random score click");
 		addScoreToLeaderboard(Math.floor(Math.random() * 2), Math.floor(Math.random() * 50));
