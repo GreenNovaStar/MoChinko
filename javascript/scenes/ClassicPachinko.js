@@ -5,17 +5,15 @@ var ClassicPachinkoState = new Phaser.Class({
 		Phaser.Scene.call(this, { key: "Classic" });
 	},
 
-
 	preload: function () {
 		// Preload images for this state
 		// this.load.setBaseURL("https://labs.phaser.io");
 
 		// this.load.image("bg4", "assets/skies/gradient8.png");
-		this.load.setPath("../../assets/Scene Assets/");
+		this.load.setPath("../../Mochinko/assets/Scene Assets/");
 		this.load.image("close-btn", "delete.png");
 		this.load.image("bg8", "Background/gradient8.png");
-		this.load.image("blueball","blue_ball.png");
-		
+		this.load.image("blueball", "blue_ball.png");
 	},
 
 	create: function () {
@@ -50,10 +48,9 @@ var ClassicPachinkoState = new Phaser.Class({
 		ball.setBounce(1.0, 0.75);
 		ball.setVelocity(0);
 		ball.body.setCircle(9);
-		var r3 = this.add.ellipse(width/2, height/2, width -10,height/2 + 150);
+		var r3 = this.add.ellipse(width / 2, height / 2, width - 10, height / 2 + 150);
 
 		r3.setStrokeStyle(10, 0xffffff);
-		
 	},
 
 	update: function () {
