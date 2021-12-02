@@ -9,13 +9,9 @@ https://www.w3schools.com/howto/howto_css_hero_image.asp */
 
 /* main page banner */
 .home-image {
-	/* background-image: linear-gradient(from top, rgb(0 0 0 / 0), rgb(0 0 0 / 0.5)),
-		url("../assets/HomePage/bogdan-mb0sco-arcade-animate.gif"); */
 	background-image: radial-gradient(ellipse, rgb(0 0 0 / 0.2), rgb(0 0 0 / 0.3)),
 		url("../assets/HomePage/bogdan-mb0sco-arcade-animate.gif");
-	/* url("../assets/45006b9846f9ea386e427f9d5423dc96.png"); */
 	height: 100vh;
-	/* width: 100vw; */
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -34,19 +30,19 @@ https://www.w3schools.com/howto/howto_css_hero_image.asp */
 
 /* Main Page Play Button */
 .fa-play {
-	color: rgb(255, 0, 119);
+	color: var(--primary-color);
 	stroke: var(--primary-color);
 	/* stroke-width: 10px; */
-	filter: drop-shadow(3px 4px 10px rgb(0 0 0 / 0.6));
+	filter: drop-shadow(3px 4px 10px rgb(255 123 173 / 1));
 	transition: 300ms ease-in-out;
 }
 
 .fa-play:hover {
 	/* color: rgb(255, 0, 119); */
-	color: var(--secondary-color);
+	color: var(--primary-color);
 	/* color: inset -6em -3em 0 0 var(--primary-color) !important; */
-	filter: drop-shadow(4px 6px 10px rgb(0 0 0 / 0.6));
-	stroke: var(--primary-color);
+	filter: drop-shadow(4px 6px 30px rgb(128 249 249 / 1));
+	stroke: var(--tertiary-color);
 	stroke-width: 20px;
 }
 /* End Main page Play Button */
@@ -56,6 +52,6 @@ https://www.w3schools.com/howto/howto_css_hero_image.asp */
 	font-size: 100px;
 	font-weight: bold;
 	color: var(--primary-color);
-	text-shadow: 3px 4px 10px rgb(0 0 0 / 0.6);
+	text-shadow: 3px 4px 10px rgb(255 123 173 / 1);
 	/* -webkit-text-stroke: 4px black; */
 }
