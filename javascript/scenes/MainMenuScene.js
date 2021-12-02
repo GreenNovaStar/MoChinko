@@ -116,13 +116,14 @@ function Create() {
 	);
 	helpButton.on("pointerdown", () => {
 		game.scene.start("Help");
-		// console.log("help button");
+		console.log("help button");
 	});
 	helpButton.on("pointerover", () => {
 		hoverball.setVisible(true);
 		hoverball.play("change-color");
 		hoverball.x = helpButton.x - 200;
 		hoverball.y = helpButton.y;
+		console.log("help button hover");
 	});
 	helpButton.on("pointerout", () => {
 		hoverball.setVisible(false);
