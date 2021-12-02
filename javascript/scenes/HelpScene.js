@@ -24,6 +24,8 @@ var HelpState = new Phaser.Class({
 		let scale = Math.max(scaleX, scaleY);
 		image.setScale(scale).setScrollFactor(0);
 
+		const help = this.add.text(30, 30, "Help/Controls", { fontSize: 48, fill: "#0f0" });
+
 		let closeButton = this.add.image(width - 50, 50, "close-btn");
 		closeButton.setScale(0.08);
 		closeButton.setInteractive(

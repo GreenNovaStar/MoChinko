@@ -37,9 +37,7 @@ function Create() {
 	hoverball.setScale(0.08);
 	hoverball.setVisible(false);
 
-	const levelSelect = this.add
-		.text(xOffset - 20, yOffset, "Level Select", { fontSize: 48, fill: "#0f0" })
-		.setInteractive();
+	const levelSelect = this.add.text(30, 30, "Level Select", { fontSize: 48, fill: "#0f0" });
 
 	let closeButton = this.add.image(width - 50, 50, "close-btn");
 	closeButton.setScale(0.08);

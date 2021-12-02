@@ -33,21 +33,24 @@ function Create() {
 	console.log("MainMenu");
 	// game.scene.start("GamePlay");
 
-	// game.scene.start("LevelSelect");
-
+	//scale background image to fit the width
 	let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg2");
 	let scaleX = this.cameras.main.width / image.width;
 	let scaleY = this.cameras.main.height / image.height;
 	let scale = Math.max(scaleX, scaleY);
 	image.setScale(scale).setScrollFactor(0);
-	const logo = this.add.text(xOffset, yOffset, "Mochinko", { fontSize: 64, fill: "#0f0" });
 
+	const logo = this.add.text(xOffset - 78, yOffset, "Mochinko!", { fontSize: 90, fill: "#0f0" });
+
+	//create a ball that shows up when hovered
 	let hoverball = this.add.sprite(100, 100, "ball-sprite");
 	hoverball.setScale(0.08);
 	hoverball.setVisible(false);
 
+	//disable right click on mouse
 	this.input.mouse.disableContextMenu();
 
+	//load play button asset and functionality
 	let playButton = this.add.image(width / 2, yOffset + 200, "play-btn");
 	playButton.setInteractive(
 		new Phaser.Geom.Rectangle(0, 60, 300, 50),
@@ -66,6 +69,7 @@ function Create() {
 		hoverball.setVisible(false);
 	});
 
+	//load leaderboard button asset and functionality
 	let leaderboardButton = this.add.image(width / 2, yOffset + 300, "leaderboard-btn");
 	leaderboardButton.setInteractive(
 		new Phaser.Geom.Rectangle(0, 60, 300, 50),
@@ -84,6 +88,7 @@ function Create() {
 		hoverball.setVisible(false);
 	});
 
+	//load help button asset and functionality
 	let helpButton = this.add.image(width / 2, yOffset + 400, "help-btn");
 	helpButton.setInteractive(
 		new Phaser.Geom.Rectangle(0, 60, 150, 50),
