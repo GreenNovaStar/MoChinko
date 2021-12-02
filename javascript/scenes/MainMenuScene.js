@@ -35,7 +35,7 @@ function Preload() {
 }
 function Create() {
 	console.log("MainMenu");
-	// game.scene.start("GamePlay");
+	 game.scene.start("Classic");
 
 	//scale background image to fit the width
 	// let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg2");

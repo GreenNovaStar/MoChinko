@@ -37,7 +37,7 @@ var config = {
 		default: "arcade",
 		arcade: {
 			gravity: { y: 0 },
-			debug: true,
+			debug: false,
 		},
 	},
 	scene: {
@@ -166,7 +166,7 @@ function update()
     {
 		if(!isBallReleased)
         {
-			ball.setVelocityX(-20);
+			ball.setVelocityX(-200);
             console.log("left key");
         }
     }
@@ -174,7 +174,7 @@ function update()
 	{
 		if(!isBallReleased)
         {
-			ball.setVelocityX(20);
+			ball.setVelocityX(200);
             console.log("right key");
         }
     }

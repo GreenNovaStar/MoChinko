@@ -5,6 +5,7 @@ var ClassicPachinkoState = new Phaser.Class({
 		Phaser.Scene.call(this, { key: "Classic" });
 	},
 
+
 	preload: function () {
 		// Preload images for this state
 		// this.load.setBaseURL("https://labs.phaser.io");
@@ -13,9 +14,13 @@ var ClassicPachinkoState = new Phaser.Class({
 		this.load.setPath("../../assets/Scene Assets/");
 		this.load.image("close-btn", "delete.png");
 		this.load.image("bg8", "Background/gradient8.png");
+		this.load.image("blueball","blue_ball.png");
+		
 	},
 
 	create: function () {
+		keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+		cursorKeys = this.input.keyboard.createCursorKeys();
 		// Create objects
 		console.log("Classic Pachinko");
 		// let image = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, "bg8");
@@ -38,6 +43,17 @@ var ClassicPachinkoState = new Phaser.Class({
 		// closeButton.on("pointerover", () => {});
 
 		createCloseButton(this, "Classic");
+
+		ball = this.physics.add.sprite(10, height, "blueball");
+		ball.setScale(2.0);
+		ball.setCollideWorldBounds(true);
+		ball.setBounce(1.0, 0.75);
+		ball.setVelocity(0);
+		ball.body.setCircle(9);
+		var r3 = this.add.ellipse(width/2, height/2, width -10,height/2 + 150);
+
+		r3.setStrokeStyle(10, 0xffffff);
+		
 	},
 
 	update: function () {
