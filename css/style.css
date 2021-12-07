@@ -20,12 +20,19 @@ canvas {
 
 .header-nav {
 	background-color: var(--primary-color);
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
 }
 
 .footer-style {
 	background-color: var(--primary-color);
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
 }
-
 
 /* main section of game page */
 main {
@@ -35,4 +42,5 @@ main {
 	height: 100vh;
 	background-position: center;
 	background-size: cover;
+	overflow: hidden;
 }
