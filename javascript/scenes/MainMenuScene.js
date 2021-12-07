@@ -112,7 +112,7 @@ function Create() {
 	//load help button asset and functionality
 	let helpButton = this.add.image(width / 2, yOffset + 400, "help-btn");
 	helpButton.setInteractive(
-		new Phaser.Geom.Rectangle(0, -60, 150, 50),
+		new Phaser.Geom.Rectangle(0, -30, 150, 50),
 		Phaser.Geom.Rectangle.Contains
 	);
 
