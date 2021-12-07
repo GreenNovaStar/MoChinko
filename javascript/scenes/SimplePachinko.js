@@ -9,7 +9,10 @@ var SimplePachinkoState = new Phaser.Class({
 	create: Create,
 	update: Update,
 });
-
+var dings = [];
+var winDings = [];
+var hitDings = [];
+var ding;
 var cols = 7;
 var rows = 11;
 var spacing = width / cols;
@@ -35,20 +38,38 @@ function Preload() {
 	ballcounter = 5;
 	score = 0;
 	gameover = false;
-	this.load.setBaseURL("https://labs.phaser.io");
+	// this.load.setBaseURL("https://labs.phaser.io");
 
-	this.load.image("bg5", "assets/skies/gradient9.png");
+	// this.load.image("bg5", "assets/skies/gradient9.png");
 
-	this.load.image("ball", "assets/sprites/pangball.png");
-	this.load.image("peg", "assets/sprites/orb-red.png");
+	// this.load.image("ball", "assets/sprites/pangball.png");
+	// this.load.image("peg", "assets/sprites/orb-red.png");
 
-	this.load.image("logo", "assets/sprites/slime.png");
-	this.load.image("peg2", "assets/particles/green-orb.png");
-	this.load.image("score10", "assets/particles/blue.png");
-	this.load.image("score20", "assets/particles/yellow.png");
-	this.load.image("score15", "assets/particles/red.png");
+	// this.load.image("logo", "assets/sprites/slime.png");
+	// this.load.image("peg2", "assets/particles/green-orb.png");
+	// this.load.image("score10", "assets/particles/blue.png");
+	// this.load.image("score20", "assets/particles/yellow.png");
+	// this.load.image("score15", "assets/particles/red.png");
 
+	// this.load.setPath("../../assets/Scene_Assets/");
+	this.load.setPath("../../MoChinko/assets/Scene_Assets/");
+	this.load.image("close-btn", "delete.png");
+	this.load.image("bg5", "Background/gradient2.png");
+	this.load.image("ball", "pangball.png");
+	this.load.image("peg", "orbred.png");
 
+	this.load.audio("ding0", "Audio/star-collect.mp3");
+	this.load.audio("ding1", "Audio/pop-ding.mp3");
+	this.load.audio("ding2", "Audio/pop-ding-2.mp3");
+	this.load.audio("ding3", "Audio/swoosh-ding.mp3");
+
+	this.load.audio("hit0", "Audio/box-hit-1.mp3");
+	this.load.audio("hit1", "Audio/box-hit-2.mp3");
+	this.load.audio("hit2", "Audio/box-hit-3.mp3");
+
+	this.load.image("score10", "score10.png");
+	this.load.image("score15", "score15.png");
+	this.load.image("score20", "score20.png");
 }
 
 function Create() {
@@ -81,9 +102,10 @@ function Create() {
 	keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 	cursorKeys = this.input.keyboard.createCursorKeys();
 	text = this.add.text(10, 10, "Score: 0", { font: "32px Courier", fill: "#3333ff" });
-	ballcountertext = this.add.text(10, 60, "Balls Left:" + ballcounter, { font: "28px Courier", fill: "#3333ff" });
-
-
+	ballcountertext = this.add.text(10, 60, "Balls Left:" + ballcounter, {
+		font: "28px Courier",
+		fill: "#3333ff",
+	});
 
 	ball = this.physics.add.sprite(width / 2, 30, "ball");
 	ball.setScale(0.8);
@@ -99,6 +121,17 @@ function Create() {
 		collideWorldBounds: true,
 		gridAlign: true,
 	});
+	for (let i = 0; i < 3; i++) {
+		ding = this.sound.add("ding" + i);
+		dings.push(ding);
+	}
+	ding = this.sound.add("ding3");
+	winDings.push(ding);
+
+	for (let i = 0; i < 3; i++) {
+		ding = this.sound.add("hit" + i);
+		hitDings.push(ding);
+	}
 
 	winning = this.physics.add.group({
 		defaultKey: "score10",
@@ -153,89 +186,101 @@ function Create() {
 	winning.create(415, height - winningheight).setScale(0.35);
 	winning3.create(477, height - winningheight).setScale(0.35);
 
-	gameovertext = this.add.text(60, height/2, "Game Over!", { font: "65px Courier", fill: "#FF0000", stroke: '#000', strokeThickness: 10 });
-	gameovertext2 = this.add.text(50, 700, "   Check \nLeaderBoard!", { font: "50px Courier", fill: "#FF0000", stroke: '#000', strokeThickness: 10 });
+	gameovertext = this.add.text(60, height / 2, "Game Over!", {
+		font: "65px Courier",
+		fill: "#FF0000",
+		stroke: "#000",
+		strokeThickness: 10,
+	});
+	gameovertext2 = this.add.text(50, 700, "   Check \nLeaderBoard!", {
+		font: "50px Courier",
+		fill: "#FF0000",
+		stroke: "#000",
+		strokeThickness: 10,
+	});
 
-	gameovertext.setVisible (false);
-	gameovertext2.setVisible (false);
-
+	gameovertext.setVisible(false);
+	gameovertext2.setVisible(false);
 
 	pegs.refresh();
 
-	this.physics.add.collider(ball, pegs);
-	this.physics.add.collider(ball, boxes);
+	this.physics.add.collider(ball, pegs, function () {
+		let rand = Math.floor(Math.random() * dings.length);
+		dings[rand].play();
+	});
+	this.physics.add.collider(ball, boxes, function () {
+		let rand = Math.floor(Math.random() * hitDings.length);
+		hitDings[rand].play();
+	});
 
 	this.physics.add.overlap(ball, winning, overlapscore);
 	this.physics.add.overlap(ball, winning2, overlapscore2);
 	this.physics.add.overlap(ball, winning3, overlapscore3);
-
-
 }
 
 function Update() {
 	text.setText("Score: " + score);
 	ballcountertext.setText("Balls Left:" + ballcounter);
-	if(!gameover)
-	{
-	if (keySpace.isDown) {
-		if (!isBallReleased) {
-			ball.setVelocity(Phaser.Math.Between(-200, 200), Phaser.Math.Between(5, width));
-			ball.setGravityY(200);
-			isBallReleased = true;
-			console.log("spacebar");
+	if (!gameover) {
+		if (keySpace.isDown) {
+			if (!isBallReleased) {
+				ball.setVelocity(Phaser.Math.Between(-200, 200), Phaser.Math.Between(5, width));
+				ball.setGravityY(200);
+				isBallReleased = true;
+				console.log("spacebar");
+			}
 		}
-	}
-	if (cursorKeys.left.isDown) {
-		if (!isBallReleased) {
-			ball.setVelocityX(-60);
-			console.log("left key");
+		if (cursorKeys.left.isDown) {
+			if (!isBallReleased) {
+				ball.setVelocityX(-60);
+				console.log("left key");
+			}
 		}
-	}
-	if (cursorKeys.right.isDown) {
-		if (!isBallReleased) {
-			ball.setVelocityX(60);
-			console.log("right key");
+		if (cursorKeys.right.isDown) {
+			if (!isBallReleased) {
+				ball.setVelocityX(60);
+				console.log("right key");
+			}
 		}
-	}
 
-	if (!(cursorKeys.left.isDown || cursorKeys.right.isDown)) {
-		if (!isBallReleased) {
-			ball.setVelocityX(0);
+		if (!(cursorKeys.left.isDown || cursorKeys.right.isDown)) {
+			if (!isBallReleased) {
+				ball.setVelocityX(0);
+			}
 		}
 	}
- 	}
-	if(gameover)
-	{
+	if (gameover) {
 		gameovertext.setVisible(true);
 		gameovertext2.setVisible(true);
 
 		pegs.setVisible(false);
-
 	}
 }
 
 function overlapscore(ball, winning) {
+	let rand = Math.floor(Math.random() * winDings.length);
+	winDings[rand].play();
 	winning.body.enable = false;
 	score += 10;
 	resetball();
 	winning.body.enable = true;
 }
 
-function overlapscore2(ball, winning2)
-{
+function overlapscore2(ball, winning2) {
+	let rand = Math.floor(Math.random() * winDings.length);
+	winDings[rand].play();
 	winning2.body.enable = false;
 	score += 20;
 	resetball();
 	winning2.body.enable = true;
-
 }
-function overlapscore3(ball, winning3)
-{
+function overlapscore3(ball, winning3) {
+	let rand = Math.floor(Math.random() * winDings.length);
+	winDings[rand].play();
 	winning3.body.enable = false;
 	score += 15;
 	resetball();
 	winning3.body.enable = true;
-
 }
 
 function resetball() {
@@ -244,12 +289,10 @@ function resetball() {
 	ball.setBounce(1.0, 0.7);
 	ball.setVelocity(0);
 	ball.setGravityY(0);
-	ballcounter --;
-	if(ballcounter <= 0)
-	{
-		addScoreToLeaderboard(1,score);
+	ballcounter--;
+	if (ballcounter <= 0) {
+		addScoreToLeaderboard(1, score);
 		gameover = true;
-
 	}
 }
 // Add scene to list of scenes

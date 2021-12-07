@@ -11,7 +11,7 @@ https://www.w3schools.com/howto/howto_css_hero_image.asp */
 .home-image {
 	background-image: radial-gradient(ellipse, rgb(0 0 0 / 0.2), rgb(0 0 0 / 0.3)),
 		url("../assets/HomePage/bogdan-mb0sco-arcade-animate.gif");
-	height: 100vh;
+	height: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
