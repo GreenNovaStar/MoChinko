@@ -58,6 +58,8 @@ function Preload() {
 	this.load.image("ball", "pangball.png");
 	this.load.image("peg", "orbred.png");
 
+	this.load.image("reset", "undo-arrow.png");
+
 	this.load.audio("ding0", "Audio/star-collect.mp3");
 	this.load.audio("ding1", "Audio/pop-ding.mp3");
 	this.load.audio("ding2", "Audio/pop-ding-2.mp3");
@@ -98,6 +100,19 @@ function Create() {
 	// });
 
 	createCloseButton(this, "Simple");
+
+	let resetButton = this.add.image(width - 130, 50, "reset");
+	resetButton.setScale(0.09);
+	resetButton.setInteractive(
+		new Phaser.Geom.Rectangle(0, 600, 700, 700),
+		Phaser.Geom.Rectangle.Contains
+	);
+	resetButton.on("pointerdown", () => {
+		resetBallLocation();
+	});
+	resetButton.on("pointerover", () => {
+		console.log("simple: close button hover");
+	});
 
 	keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 	cursorKeys = this.input.keyboard.createCursorKeys();
@@ -295,5 +310,14 @@ function resetball() {
 		gameover = true;
 	}
 }
+
+function resetBallLocation() {
+	ball.setPosition(width / 2, 30);
+	isBallReleased = false;
+	ball.setBounce(1.0, 0.7);
+	ball.setVelocity(0);
+	ball.setGravityY(0);
+}
+
 // Add scene to list of scenes
 myGame.scenes.push(SimplePachinkoState);

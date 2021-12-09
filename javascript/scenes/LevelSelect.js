@@ -21,8 +21,8 @@ function Preload() {
 	this.load.setPath("../../MoChinko/assets/Scene_Assets/");
 	this.load.image("close-btn", "delete.png");
 	this.load.image("bg3", "Background/gradient3.png");
-	this.load.image("classic", "Temp Assets/blocka.png");
-	this.load.image("simple", "Temp Assets/blockb.png");
+	this.load.image("classic", "ClassicPachinko.png");
+	this.load.image("simple", "SimplePachinko.png");
 	this.load.image("ball-sprite", "medicine-ball.png");
 	this.load.spritesheet("shift-balls", "Temp Assets/balls.png", {
 		frameHeight: 17,
@@ -61,7 +61,7 @@ function Create() {
 	createCloseButton(this, "LevelSelect");
 
 	// create a classic pachinko selector
-	let ClassicPachinko = this.add.image(xOffset + 50, yOffset + 150, "classic");
+	let ClassicPachinko = this.add.image(xOffset + 150, yOffset + 350, "classic");
 	ClassicPachinko
 		.setInteractive
 		// new Phaser.Geom.Rectangle(0, 60, 65, 65),
@@ -74,7 +74,7 @@ function Create() {
 	ClassicPachinko.on("pointerover", () => {
 		hoverball.setVisible(true);
 		hoverball.play("change-color");
-		hoverball.x = ClassicPachinko.x - 80;
+		hoverball.x = ClassicPachinko.x - 190;
 		hoverball.y = ClassicPachinko.y;
 	});
 	ClassicPachinko.on("pointerout", () => {
@@ -82,7 +82,7 @@ function Create() {
 	});
 
 	// create simple pachinko selector
-	let SimplePachinko = this.add.image(xOffset + 50, yOffset + 250, "simple");
+	let SimplePachinko = this.add.image(xOffset + 150, yOffset + 150, "simple");
 	SimplePachinko
 		.setInteractive
 		// new Phaser.Geom.Rectangle(0, 60, 65, 65),
@@ -95,8 +95,8 @@ function Create() {
 	SimplePachinko.on("pointerover", () => {
 		hoverball.setVisible(true);
 		hoverball.play("change-color");
-		hoverball.x = SimplePachinko.x - 80;
-		hoverball.y = SimplePachinko.y;
+		hoverball.x = SimplePachinko.x - 190;
+		hoverball.y = SimplePachinko.y - 30;
 	});
 	SimplePachinko.on("pointerout", () => {
 		hoverball.setVisible(false);
