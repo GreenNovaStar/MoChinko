@@ -17,6 +17,7 @@ let xOffset = 100;
 function Preload() {
 	// this.load.setPath("../../assets/Scene_Assets/");
 	this.load.setPath("../../MoChinko/assets/Scene_Assets/");
+	this.load.image("logo", "MochinkoLogo.png");
 	this.load.image("play-btn", "MainMenu/PlayGame.png");
 	this.load.image("leaderboard-btn", "MainMenu/Leaderboard.png");
 	this.load.image("help-btn", "MainMenu/Help.png");
@@ -47,7 +48,8 @@ function Create() {
 
 	loadBackground(this, "bg2");
 
-	const logo = this.add.text(xOffset - 78, yOffset, "Mochinko!", { fontSize: 90, fill: "#0f0" });
+	// const logo = this.add.text(xOffset - 78, yOffset, "Mochinko!", { fontSize: 90, fill: "#0f0" });
+	const logoImg = this.add.image(xOffset + 165, yOffset, "logo");
 
 	//create a ball that shows up when hovered
 	let hoverball = this.add.sprite(100, 100, "shift-balls");
