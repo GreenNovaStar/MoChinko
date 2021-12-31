@@ -5,4 +5,5 @@ Our game will be based on an old Pachinko machine. This game the ball will drop 
 
 ## Quick Links
 - [Project Proposal](https://docs.google.com/document/d/1ewXVcOJNUv8_0JmZz4buoIFXYNsyA6-31OMzq7WuJc0/edit)
-- [Glitch](https://glitch.com/edit/#!/comp484-mochinko)
+- [Glitch, Hello World Example](https://glitch.com/edit/#!/comp484-mochinko)
+- [Mochinko](https://greennovastar.github.io/MoChinko/)
